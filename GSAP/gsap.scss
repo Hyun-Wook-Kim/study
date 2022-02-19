@@ -1,0 +1,13 @@
+.box{
+    width: 100px;
+    height: 100px;
+    &.orange{
+        background-color: orange;
+    }
+    &.green{
+        background-color: green;
+    }
+    &.red{
+        background-color: red;
+    }
+}

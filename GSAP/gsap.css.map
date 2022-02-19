@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,IAAI,CAAA;EACA,KAAK,EAAE,KAAK;EACZ,MAAM,EAAE,KAAK;CAUhB;;AAZD,AAGI,IAHA,AAGC,OAAO,CAAA;EACJ,gBAAgB,EAAE,MAAM;CAC3B;;AALL,AAMI,IANA,AAMC,MAAM,CAAA;EACH,gBAAgB,EAAE,KAAK;CAC1B;;AARL,AASI,IATA,AASC,IAAI,CAAA;EACD,gBAAgB,EAAE,GAAG;CACxB",
+    "sources": [
+        "gsap.scss"
+    ],
+    "names": [],
+    "file": "gsap.css"
+}

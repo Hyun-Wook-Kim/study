@@ -1,0 +1,143 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.app {
+  padding: 100px 40px;
+}
+
+.input-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 50px;
+}
+
+.input-wrap input {
+  width: 300px;
+  height: auto;
+  line-height: 40px;
+  padding: 4px 10px;
+}
+
+.input-wrap button {
+  background: none;
+  border: 0;
+  padding: 10px;
+  margin-left: 10px;
+  background-color: red;
+  color: white;
+  cursor: pointer;
+}
+
+.youtube-list {
+  width: 100%;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  -webkit-column-gap: 30px;
+          column-gap: 30px;
+  row-gap: 50px;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+}
+
+.youtube-list .video-item {
+  width: calc(33.3333% - 20px);
+  word-break: break-all;
+}
+
+.youtube-list .video-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.youtube-list .video-item h3 {
+  margin-top: 16px;
+  font-size: 20px;
+  letter-spacing: -1px;
+  font-size: 16px;
+}
+
+.youtube-list .video-item p {
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+.youtube-list .video-item p.channelTitle {
+  font-weight: 600;
+}
+
+.youtube-list .video-item p.desc {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+}
+
+@media only screen and (max-width: 1023px) {
+  .youtube-list .video-item {
+    width: calc(50% - 15px);
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .youtube-list .video-item {
+    width: 100%;
+  }
+}
+
+.popup-wrapper {
+  -webkit-transition: all 1s;
+  transition: all 1s;
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.popup-wrapper.active {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+.popup-wrapper .popup-inner {
+  height: 100vh;
+  background-color: #00000050;
+  position: relative;
+}
+
+.popup-wrapper .popup-inner .video-wrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: white;
+}
+
+.popup-wrapper .popup-inner .video-wrap video {
+  width: 100%;
+  height: 100%;
+}
+/*# sourceMappingURL=youtubemain.css.map */
