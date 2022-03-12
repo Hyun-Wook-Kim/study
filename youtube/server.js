@@ -11,3 +11,5 @@ app.get("/*", (req, res) => {
 app.listen(process.env.PORT || 5500, () => {
   console.log("server running....");
 });
+
+// express 는 서버 엔드 포인트를 설정할 수 있다. (API 등의 최종 주소! 일종의 라우팅이랑 같은 거임.)

@@ -24,6 +24,7 @@ export default class YoutubeMain {
               .then((response) => response.json())
               .then((data) => {
                 this._youtube._nextPageToken = data.nextPageToken;
+                // document.querySelector(".youtube-list").innerHTML = "";
                 data.items.forEach((el) => {
                   this._drawYoutubeList(el);
                 });
@@ -42,28 +43,21 @@ export default class YoutubeMain {
         ]
       );
     });
-    document.querySelectorAll(".video-item").forEach((el) => {
-      el.addEventListener("click", (event) => {
-        const id = event.currentTarget.dataset.id;
-        this._videoDetail(id);
-      });
-    });
+    // document.querySelectorAll(".video-item").forEach((el) => {
+    //   el.addEventListener("click", (event) => {
+    //     const id = event.currentTarget.dataset.id;
+    //     this._videoDetail(id);
+    //   });
+    // });
   }
   async _searchList(query) {
-    document.querySelector(".youtube-list").innerHTML = "";
+    // document.querySelector(".youtube-list").innerHTML = "";
     await this._youtube.search(query);
     this._youtube._videoList.forEach((video) => {
       this._drawYoutubeList(video);
     });
-    document.querySelectorAll(".video-item").forEach((el) => {
-      el.addEventListener("click", (event) => {
-        const id = event.currentTarget.dataset.id;
-        this._videoDetail(id);
-      });
-    });
   }
   _drawYoutubeList(video) {
-    console.log(video);
     const { snippet } = video;
 
     const elem = `<div class="video-item" data-id=${video.id} >
@@ -91,10 +85,10 @@ export default class YoutubeMain {
     );
   }
 
-  async _videoDetail(id) {
-    const selectedVideo = await fetch(
-      `https://www.googleapis.com/youtube/v3/videos?key=AIzaSyATiRsLlNU1-g6HIbwJC_yhaOr6xM_tQEs&part=snippet&id=${id}`
-    );
-    console.log(selectedVideo);
-  }
+  // async _videoDetail(id) {
+  //   const selectedVideo = await fetch(
+  //     `https://www.googleapis.com/youtube/v3/videos?key=AIzaSyATiRsLlNU1-g6HIbwJC_yhaOr6xM_tQEs&part=snippet&id=${id}`
+  //   );
+  //   console.log(selectedVideo);
+  // }
 }

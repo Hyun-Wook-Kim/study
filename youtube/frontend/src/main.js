@@ -1,5 +1,10 @@
 import YoutubeMain from "./components/youtubemain.js";
-const app = new YoutubeMain();
+import Main from "./views/Main.js";
+import Search from "./views/Search.js";
+import Myvideo from "./views/Myvideo.js";
+// const app = new YoutubeMain();
+
+//history.pushState(state, title, url)
 
 const navigateTo = (url) => {
   history.pushState(null, null, url);
@@ -10,26 +15,20 @@ const router = async () => {
   const routes = [
     {
       path: "/",
-      view: () => {
-        console.log("메인 화면이 보이는 중");
-      },
+      view: Main,
     },
     {
       path: "/search",
-      view: () => {
-        console.log("검색 화면이 보이는 중");
-      },
+      view: Search,
     },
     {
       path: "/my-video",
-      view: () => {
-        console.log("내 비디오 화면이 보이는 중");
-      },
+      view: Myvideo,
     },
     {
       path: "/account",
       view: () => {
-        console.log("계정 화면이 보이는 중");
+        // document.querySelector(".youtube-list").innerHTML = "";
       },
     },
   ];
@@ -42,7 +41,7 @@ const router = async () => {
       isMatch: location.pathname === route.path,
     };
   });
-  console.log(potentialMatches);
+  // console.log(potentialMatches);
   let match = potentialMatches.find(
     (potentialMatches) => potentialMatches.isMatch
   );
@@ -55,49 +54,45 @@ const router = async () => {
 
   // 라우터에 따른 화면 출력
   if (match.route.path === "/") {
-    document.querySelector(".youtube-list").innerHTML = "";
-    app._youtubeList().then(() => {
-      console.log("메인화면 쨔잔!");
-    });
+    const main = new match.route.view();
+    main.getHtml();
   }
 
   if (match.route.path === "/search") {
-    document.querySelector(".youtube-list").innerHTML = "";
-    document.querySelector(".input-wrap").classList.add("show");
+    const search = new match.route.view();
+    search.getHtml();
   } else {
     document.querySelector(".input-wrap").classList.remove("show");
   }
 
   if (match.route.path === "/my-video") {
-    document.querySelector(".youtube-list").innerHTML = "";
+    const Myvideo = new match.route.view();
+    Myvideo.getHtml();
   }
 
   if (match.route.path === "/account") {
-    document.querySelector(".youtube-list").innerHTML = "";
   }
 
-  match.route.view();
+  // match.route.view();
 };
+
+// window.addEventListener("popstate", router);
 
 document.addEventListener("DOMContentLoaded", () => {
   router();
 
-  document.querySelector(".logo").addEventListener("click", () => {
+  document.querySelector(".menu-button").addEventListener("click", () => {
     document.querySelector(".nav").classList.add("active");
   });
   document.querySelector(".close-btn").addEventListener("click", () => {
     document.querySelector(".nav").classList.remove("active");
   });
+
   document.addEventListener("click", (event) => {
     if (event.target.matches("[data-link]")) {
       document.querySelector(".nav").classList.remove("active");
       event.preventDefault();
       navigateTo(event.target.href);
     }
-  });
-
-  document.querySelector(".searchBtn").addEventListener("click", () => {
-    const query = document.querySelector(".search-query").value;
-    app._searchList(query);
   });
 });

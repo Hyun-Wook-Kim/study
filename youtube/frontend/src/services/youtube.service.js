@@ -1,34 +1,3 @@
-// import HttpService from "./http.service.js";
-
-// export class YoutubeService {
-//   _mostPopularPageToken;
-//   videoList = [];
-
-//   constructor(key) {
-//     this._request = new HttpService();
-//     this._request.create({
-//       baseURL: "https://www.googleapis.com/youtube/v3",
-//       params: { key },
-//     });
-//   }
-
-//   async mostPopular() {
-//     const response = await this._request.get("videos", {
-//       part: "snippet",
-//       maxResult: 25,
-//       regionCode: "kr",
-//       chart: "MostPopular",
-//       pageToken: this._mostPopularPageToken,
-//     });
-//     console.log(response);
-//     this._mostPopularPageToken = response.nextPageToken;
-//     const result = response?.items ?? [];
-//     this.videoList = [this.videoList, ...result];
-//     console.log(this.videoList);
-//     return result;
-//   }
-// }
-
 import httpService from "./http.service.js";
 import observer from "../observer.js";
 export default class YoutubeService {
@@ -59,7 +28,6 @@ export default class YoutubeService {
   }
 
   async search(query) {
-    console.log(this._nextPageToken);
     this._request = new httpService(
       "https://www.googleapis.com/youtube/v3/search",
       "AIzaSyATiRsLlNU1-g6HIbwJC_yhaOr6xM_tQEs",
