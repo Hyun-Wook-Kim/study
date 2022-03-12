@@ -2,6 +2,8 @@ import YoutubeMain from "./components/youtubemain.js";
 import Main from "./views/Main.js";
 import Search from "./views/Search.js";
 import Myvideo from "./views/Myvideo.js";
+import Account from "./views/Account.js";
+
 // const app = new YoutubeMain();
 
 //history.pushState(state, title, url)
@@ -27,9 +29,7 @@ const router = async () => {
     },
     {
       path: "/account",
-      view: () => {
-        // document.querySelector(".youtube-list").innerHTML = "";
-      },
+      view: Account,
     },
   ];
 
@@ -71,6 +71,8 @@ const router = async () => {
   }
 
   if (match.route.path === "/account") {
+    const Account = new match.route.view();
+    Account.getHtml();
   }
 
   // match.route.view();

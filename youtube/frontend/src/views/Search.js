@@ -9,7 +9,10 @@ export default class extends AbstractView {
   }
 
   async getHtml() {
-    document.querySelector(".youtube-list").innerHTML = "";
+    document.querySelector(".app").innerHTML = "";
+    const inner = document.createElement("div");
+    inner.classList.add("youtube-list");
+    document.querySelector(".app").append(inner);
     document.querySelector(".input-wrap").classList.add("show");
     document.querySelector(".input-wrap input").value = "";
     document.querySelector(".searchBtn").removeEventListener("click", () => {

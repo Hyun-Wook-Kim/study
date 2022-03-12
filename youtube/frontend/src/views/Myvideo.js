@@ -22,7 +22,10 @@ export default class extends Abstract {
     // const tmp = channel.json();
     const tmp = await channel.json();
     const myVidieoList = tmp.items;
-    document.querySelector(".youtube-list").innerHTML = ``;
+    document.querySelector(".app").innerHTML = "";
+    const inner = document.createElement("div");
+    inner.classList.add("youtube-list");
+    document.querySelector(".app").append(inner);
 
     const titleBox = document.createElement("div");
     const titleTag = document.createElement("h2");

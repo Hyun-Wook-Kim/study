@@ -4,6 +4,7 @@
 }
 
 
+
 .header{
     display: flex;
     justify-content: space-between;
@@ -186,6 +187,22 @@
     @media only screen and (max-width:767px){
         .video-item{
         width: 100%;
+        }
+    }
+}
+
+
+.account-box{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    .input{
+        width: 45%;
+        height: 50px;
+        input{
+            padding: 5px 15px;
+            width: 100%;
+            height: 100%;
         }
     }
 }
