@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마이크로태스크큐</title>
+</head>
+
+<body>
+
+
+
+</body>
+
+<script>
+    setTimeout(() => {
+        console.log(1)
+    }, 0)
+
+    Promise.resolve().then(() => console.log(2)).then(() => {
+        console.log(3)
+    })
+
+    // 실행 순서는 2,3,1 순서로 진행이 된다.
+    //프로미스의 후속 처리 메서드 콜백 함수는 태스크 큐가 아닌 마이크로태스크 큐에 저장 (우선 순위가 더 높다!)
+</script>
+
+</html>

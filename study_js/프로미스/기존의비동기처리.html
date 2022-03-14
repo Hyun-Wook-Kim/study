@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기존 비동기 처리 (콜백 패턴)</title>
+</head>
+
+<body>
+    <input type="text">
+</body>
+<script>
+    let g = 0;
+    setTimeout(() => {
+        g = 100
+    }, 0);
+    console.log(g) // g값이 기대대로 반환되지 않는다.
+
+
+    document.querySelector('input').oninput = function () {
+        console.log(this.value);
+        return this.value // 얘는 의미가 없는 변환이다.
+    }
+
+    try {
+        setTimeout(() => {
+            throw new Error('error!')
+        }, 1000);
+    } catch (e) {
+        console.error('에러발생', e)
+    }
+
+    // 에러는 호출자 방향으로 전파된다. 그러나 1000ms 후 settimeout 의 콜백함수를 호출한 애는 settimeout이 아니다.
+</script>
+
+</html>

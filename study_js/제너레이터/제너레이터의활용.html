@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제너레이터 활용</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //이터러블의 구현.
+
+
+    //무한 파보나치 수열을 생성하는 함수를 구현.
+    const infiniteFibonacci = (function () {
+        let [pre, cur] = [0, 1];
+        return {
+            [Symbol.iterator]() {
+                return this
+            },
+            next() {
+                [pre, cur] = [cur, pre + cur];
+                return {
+                    value: cur
+                }
+            }
+        }
+    })();
+    console.log(infiniteFibonacci.next())
+    console.log(infiniteFibonacci.next())
+
+    for (const num of infiniteFibonacci) {
+        if (num > 10000) break;
+        console.log(num)
+    }
+
+    // 제너레이터를 사용해 구현하면...
+
+    const infiniteFibonacci2 = (function* () {
+        let [pre, cur] = [0, 1];
+
+        while (true) {
+            [pre, cur] = [cur, pre + cur];
+            yield cur;
+        }
+    })();
+    for (const num of infiniteFibonacci2) {
+        if (num > 10000) break;
+        console.log(num)
+    }
+</script>
+
+</html>

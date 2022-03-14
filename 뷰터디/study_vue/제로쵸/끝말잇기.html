@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>끝말 잇기</title>
+</head>
+
+<body>
+    <div id="app">
+        <div> {{ defaultword }}</div>
+        <input type="text" v-model="value" ref="answer"><button @click="compareword">입력</button>
+        <p>
+            {{ result }}
+        </p>
+
+    </div>
+</body>
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            defaultword: '시작',
+            value: '',
+            result: '',
+
+
+        },
+        methods: {
+            compareword: function () {
+                console.log(this.defaultword[this.defaultword.length - 1], this.value)
+                if (this.defaultword[this.defaultword.length - 1] === this.value[0]) {
+                    this.result = "correct"
+                    this.defaultword = this.value
+                } else {
+                    this.result = "wrong"
+                }
+                this.value = "";
+                this.$refs.answer.focus();
+            }
+        },
+    })
+</script>
+
+</html>

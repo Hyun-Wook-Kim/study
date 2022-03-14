@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>컴포넌트로 끝말잇기</title>
+</head>
+
+<body>
+    <div id="app">
+        <word-relay startword="김"></word-relay>
+        <word-relay startword="현"></word-relay>
+        <word-relay startword="욱"></word-relay>
+    </div>
+
+</body>
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    Vue.component('word-relay', {
+        template: `
+        <div>
+        <div> {{ defaultword }}</div>
+        <input type="text" v-model="value" ref="answer"><button @click="compareword">입력</button>
+        <p>
+            {{ result }}
+        </p>
+        </div>
+        `,
+        props: ['startword'],
+        data() {
+            return {
+                defaultword: this.startword,
+                value: '',
+                result: '',
+            }
+        },
+        methods: {
+            compareword: function () {
+                console.log(this.defaultword[this.defaultword.length - 1], this.value)
+                if (this.defaultword[this.defaultword.length - 1] === this.value[0]) {
+                    this.result = "correct"
+                    this.defaultword = this.value
+                } else {
+                    this.result = "wrong"
+                }
+                this.value = "";
+                this.$refs.answer.focus();
+            }
+        },
+    });
+</script>
+<script>
+    const app = new Vue({
+        el: '#app'
+    })
+</script>
+
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>동기/비동기 처리</title>
+</head>
+
+<body>
+
+</body>
+
+<Script>
+    function sleep(func, delay) {
+        const delayUntil = Date.now() + delay;
+        while (Date.now() < delayUntil);
+        func();
+    }
+
+    function foo() {
+        console.log('foo')
+    }
+
+    function bar() {
+        console.log('bar')
+    }
+
+    setTimeout(foo, 3000)
+    bar();
+
+
+    //자바스크립트는 싱글 스레드라 한 번에 1가지 일 밖에 못함.
+    //근데 settimeOut같은 건 어떻게 하냐?
+    //이런 멀티 스레드를 지원하는 '브라우저'가 태스크 큐에 비동기 함수를 쌓아뒀다가,
+    //자바스크립트의 콜 스택이 비어있으면 냅다 하나씩 가져가서 실행시킨다.
+    // 즉 foo가 스케쥴링 되고, 3초가 지났어도 콜 스택에 다른 실행 컨텍스트가 실행중이면 이게 끝나고 나서야 동작이 가능하다.
+</Script>
+
+</html>

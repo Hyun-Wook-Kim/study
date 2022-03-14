@@ -1,0 +1,13 @@
+{
+  "name": "package-name",
+  "version": "1.0.0",
+  "description": "package description",
+  "scripts": {
+    "serve": "node --version",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "axios": "^0.24.0"
+  },
+  "devDependencies": {}
+}

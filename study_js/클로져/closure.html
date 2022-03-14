@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클로져</title>
+
+</head>
+
+<body>
+
+</body>
+
+<script>
+    // const x = 1;
+
+    // function foo() {
+    //     const x = 10;
+    //     console.log('foo에서의 x는' + x)
+    //     bar();
+    // }
+
+    // function bar() {
+    //     console.log('bar에서의 x는' +   x)
+    // }
+
+    // foo();
+
+    // const x = 1;
+
+    // function outer() {
+    //     const x = 10;
+    //     const inner = function () {
+    //         console.log(x)
+    //     }
+    //     return inner;
+    // }
+
+    // const innerFunc = outer();
+    // innerFunc();
+
+    // const counter = (function () {
+    //     let num = 0;
+
+    //     return {
+    //         increase() {
+    //             return ++num;
+    //         },
+    //         decrease() {
+    //             return num > 0 ? num-- : 0;
+    //         }
+    //     }
+
+    // })();
+
+
+    // const Counter = (function () {
+    //     let num = 0;
+
+    //     function Counter() {
+
+    //     }
+
+    //     Counter.prototype.increase = function () {
+    //         return ++num;
+    //     }
+    //     Counter.prototype.decrease = function () {
+    //         return num > 0 ? --num : 0;
+    //     }
+    //     return Counter
+    // })();
+
+    // const counter = new Counter();
+
+
+    // const Adder = (function () {
+    //     let num = 0;
+
+    //     function adder() {
+
+    //     }
+    //     adder.prototype.add = function () {
+    //         return ++num;
+    //     }
+    //     return adder
+    // })()
+
+    // const adder = new Adder();
+    // console.log(adder.add())
+    // console.log(adder.add())
+    // console.log(adder.add())
+
+
+    // function makeCounter(predicate) {
+    //     let counter = 0;
+
+    //     return function () {
+    //         counter = predicate(counter);
+    //         return counter
+    //     };
+    // }
+
+
+    // function increase(n) {
+    //     return ++n;
+    // }
+
+    // function decrease(n) {
+    //     return --n;
+    // }
+
+    // const increaser = makeCounter(increase);
+    // console.log(increaser())
+    // console.log(increaser())
+
+    // const decreaser = makeCounter(decrease);
+    // console.log(decreaser())
+    // console.log(decreaser())
+    // 두 함수는 별도의 스코프를 가져서 값 증감이 연동되지가 않는다.
+
+
+    // const counter = (function () {
+    //     let num = 0;
+
+    //     return function (predicate) {
+    //         num = predicate(num)
+    //         return num
+    //     }
+    // })()
+
+    // function increase(n) {
+    //     return ++n;
+    // }
+
+    // function decrease(n) {
+    //     return --n;
+    // }
+
+    // console.log(counter(increase))
+
+
+    // function Person(name, age) {
+    //     this.name = name;
+    //     let _age = age;
+    // }
+
+    // Person.prototype.sayHi = function () {
+    //     console.log(`Hi! my name is ${this.name}. I am ${age}`)
+    // }
+
+    // const person = new Person('kim', 21)
+    // person.sayHi()
+
+
+    const Person = (function () {
+        let _age = 0;
+
+        function Person(name, age) {
+            this.name = name;
+            _age = age;
+        }
+        Person.prototype.sayHi = function () {
+            console.log(`Hi! my name is ${this.name} and I am ${_age} years old`)
+        }
+
+        return Person;
+    })()
+
+    const person = new Person('lee', 20)
+    person.sayHi()
+    const person2 = new Person('kim', 18)
+    person2.sayHi();
+</script>
+
+</html>

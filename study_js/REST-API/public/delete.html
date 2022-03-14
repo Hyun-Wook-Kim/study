@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>delete</title>
+</head>
+
+<body>
+    <pre></pre>
+</body>
+<script>
+    const response = fetch('http://localhost:3000/todos/6', {
+            method: 'delete'
+        }).then((response) => {
+            if (!response.ok) {
+                throw new Error('400 or 500 에러가 남.')
+            }
+            return response.json();
+        })
+        .then((myJson) => {
+            console.log(JSON.stringify(myJson))
+        })
+        .catch(() => {
+            console.log('에러남')
+        })
+</script>
+
+</html>

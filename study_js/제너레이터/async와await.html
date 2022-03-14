@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>async와 await</title>
+</head>
+
+<body>
+
+</body>
+
+<script>
+    async function fetchTodo() {
+        const url = 'https://jsonplaceholder.typicode.com/todos/1';
+
+        const response = await fetch(url);
+        const todo = await response.json();
+        console.log(todo)
+    }
+    fetchTodo();
+
+    // async 는 언제나 프로미스를 반환한다.
+    async function foo(n) {
+        return n;
+    }
+
+    foo(1).then(result => console.log(result))
+    const bar = async function (n) {
+        return n
+    }
+    bar(2).then(v => console.log(v))
+    const baz = async n => n;
+    baz(3).then(v => console.log(v))
+    const obj = {
+        async foo(n) {
+            return n
+        }
+    }
+    obj.foo(4).then(v => console.log(v))
+    class MyClass {
+        async bar(n) {
+            return n
+        }
+    }
+    const myClass = new MyClass(); // 클래스의 constructor 메서드는 async로 정의할 수 없다! 객체를 반환해야 하기 때문.
+    myClass.bar(5).then(v => console.log(v))
+
+
+
+    // await : 프로미스가 settled 될 때 까지 대기 후 reslove한 처리 결과 반환.
+
+    const getGitHubUserName = async id => {
+        const res = await fetch(`https://api.github.com/users/${id}`) // 응답을 대기 후, 응답이 오면 res에 할당
+        const {
+            name
+        } = await res.json();
+        console.log(name)
+    }
+    getGitHubUserName('ungmo2')
+
+    // 모든 프로미스에 await 을 쓰는 건 주의해야 한다. 서로 연관이 없는 비동기 처리를 대기할 필요가 없기 때문
+
+    async function foo() {
+        const res = await Promise.all([
+            new Promise(resolve => setTimeout(() => {
+                resolve(1)
+            }, 3000)),
+            new Promise(resolve => setTimeout(() => {
+                resolve(2)
+            }, 2000)),
+            new Promise(resolve => setTimeout(() => {
+                resolve(3)
+            }, 1000)),
+        ])
+        console.log(res)
+    }
+    foo()
+    // 동시에 처리해도 되는 경우 이런식으로 Promise.all 과 await 를 쓸 수 있음.
+
+    async function bar2() {
+        const a = await new Promise(resolve => setTimeout(() => {
+            resolve(1)
+        }, 3000));
+        const b = await new Promise(resolve => setTimeout(() => {
+            resolve(a + 1)
+        }, 2000));
+        const c = await new Promise(resolve => setTimeout(() => {
+            resolve(b + 1)
+        }, 1000));
+        console.log([a, b, c])
+    }
+    bar2() // 이런식으로 앞 처리 결과가 필요한 경우에 await을 쓰면 좋다.
+
+    // 에러 처리.
+    // 보통 비동기 함수의 콜백 함수를 호출하는 건 비동기 함수가 아니기 때문에 try, catch문을 사용할 수 없다.
+    // async 와 await 에서는 사용할 수 있음!!
+
+    const foo2 = async () => {
+        try {
+            const wrongUrl = 'https://wrong.url';
+            const response = await fetch(wrongUrl)
+            const data = await response.json();
+        } catch (err) {
+            console.log(err)
+        }
+    }
+    foo2() // 에러가 잡힌다. try 내에서 발생하는 일반적인 ㅔ러도 캐치할 수 있음!
+    // 만일 async 내에서 catch를 하지 않으면, async 함수는 에러를 reject 하는 프로미스를 반환한다. => 후속 처리 메서드 사용 가능!
+
+    const foo3 = async () => {
+        const wrongUrl = 'https://wrong.url';
+        const response = await fetch(wrongUrl)
+        const data = await response.json();
+        return data
+    }
+    foo3().then(data => console.log('데이터는', data)).catch(console.error)
+</script>
+
+</html>

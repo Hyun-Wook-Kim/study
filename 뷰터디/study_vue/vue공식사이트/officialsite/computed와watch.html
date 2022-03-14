@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 복잡한 로직이라면 템플릿 내에 작성하기보다는 computed 속성을 이용합니다. -->
+    <div id="example">
+        <p>원본 메세지 : "{{ message }}" </p>
+        <p>역순 메세지 : "{{ reverseMessage }}" </p>
+    </div>
+
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<script>
+    let vm = new Vue({
+        el: '#example',
+        data: {
+            message: '안녕하세요!'
+        },
+        computed: {
+            reverseMessage: function () {
+                this.message.split('').reverse().join('')
+            }
+        }
+    })
+</script>
+
+
+
+</html>

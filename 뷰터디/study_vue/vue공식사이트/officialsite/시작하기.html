@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <span v-bind:title="message">
+            내 위에 잠시 마우스를 올리면 동적으로 바인딩 된 title을 볼 수 있습니다!
+        </span>
+    </div>
+
+    <div id="app2">
+        <!-- if 문 -->
+        <p v-if="look">이제 나를 볼 수 있어요!</p>
+    </div>
+
+    <div id="app3">
+        <ul>
+            <!-- for in 반복문. todos에 들어있는 객체를 순환하며 text의 값을 뽑아 {{}}에 집어 넣는다. -->
+            <li v-for="todo in todos">
+                {{todo.text}}
+            </li>
+        </ul>
+    </div>
+
+    <!-- v-on 디렉티브 -->
+    <div id="app4">
+        <p>
+            {{message}}
+        </p>
+        <button v-on:click="reverseMessage">메시지 뒤집기</button>
+    </div>
+
+
+    <!-- 입력과 앱 상태를 야뱡향으로 바인딩하는 v-model 디렉티브 -->
+    <div id="app5">
+        <p>
+            {{message}}
+        </p>
+        <!-- 컴포넌트의 message 값과 양방향으로 바인딩 한다. -->
+        <input v-model="message">
+    </div>
+
+    <div id="app6">
+        <todo-item></todo-item>
+    </div>
+
+    <div id="app7">
+        <ul>
+            <!--  groceryList에 있는 각 아이템마다    todo라는 이름을 가진 props에 item을 전달. -->
+            <todo-item v-for="item in groceryList" v-bind:todo="item" v-bind:key="item.id">
+
+            </todo-item>
+        </ul>
+    </div>
+
+
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.4"></script>
+<script src="https://unpkg.com/vue-router@3.0.1/dist/vue-router.js"></script>
+<scrip src="https://unpkg.com/axios/dist/axios.min.js"></scrip>
+
+
+<script>
+    //동적으로 바인됭 되는 title
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: `이 페이지는 ` + new Date() + '에 로드되었습니다!'
+        }
+    })
+
+    // 
+    var app2 = new Vue({
+        el: '#app2',
+        data: {
+            look: true
+        }
+    })
+
+    var app3 = new Vue({
+        el: '#app3',
+        data: {
+            todos: [{
+                    text: 'JavaScript 배우기'
+                },
+                {
+                    text: 'Vue배우기'
+                },
+                {
+                    text: '무언가 멋진 것을 만들기'
+                }
+            ]
+        }
+    })
+
+    var app4 = new Vue({
+        el: '#app4',
+        data: {
+            message: '안녕 뷰.js!'
+        },
+        methods: {
+            reverseMessage: function () {
+                this.message = this.message.split(' ').reverse().join(' ');
+            }
+        }
+    })
+
+    var app5 = new Vue({
+        el: '#app5',
+        data: {
+            message: '안녕하세요 Vue!'
+        }
+    })
+
+    // prop을 받을 수 있는 컴포넌트
+    Vue.component('todo-item', {
+        template: "<li>{{todo.text}}.</li>",
+        props: ['todo']
+    });
+
+    var app6 = new Vue({
+        el: '#app6'
+    })
+
+    var app7 = new Vue({
+        el: '#app7',
+        data: {
+            groceryList: [{
+                    id: 0,
+                    text: 'Vegetables'
+                },
+                {
+                    id: 1,
+                    text: 'Cheese'
+                },
+                {
+                    id: 2,
+                    text: 'Whatever!'
+                }
+            ]
+        }
+    })
+</script>
+
+</html>

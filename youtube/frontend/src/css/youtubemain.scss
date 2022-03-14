@@ -1,0 +1,241 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+}
+
+.main-logo{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.menu-button{
+    cursor: pointer;
+    width: 30px;
+    height: 20px;
+    // background: black;
+    position: relative;
+    .bar{
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: 100%;
+        height: 2px;
+        background: black;
+    }
+    &::after{
+        content: "";
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        width: 100%;
+        height: 2px;
+        background: black;
+    }
+    &::before{
+        content: "";
+        position: absolute;
+        bottom: 0%;
+        left: 0%;
+        width: 100%;
+        height: 2px;
+        background: black;
+    }
+}
+
+
+
+.nav-link{
+    display: inline-block;
+    color: black;
+    &:hover{
+        color: red;
+    }
+}
+
+.nav{
+    position: fixed;
+    top: 0%;
+    right: 0%;
+    z-index: 2;
+    background-color: white;
+    width:  300px;
+    height: 100vh;
+    border: 1px solid;
+    transform: translateX(100%);
+    transition: all 1s;
+    &.active{
+        transform: translateX(0%);
+    }
+    .close-btn{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 20px;
+        height: 20px;
+        // background: yellow;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        cursor: pointer;
+    }
+}
+
+.logo{
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    position: relative;
+    cursor: pointer;
+    &::after{
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50% ,-50%) rotate(90deg);
+        width: 0px;
+        height: 0px;
+        border-left: 20px solid transparent;
+        border-bottom: 40px solid white;
+        border-right: 20px solid transparent;
+    }
+}
+
+.app{
+    padding: 100px 40px;
+}
+
+.input-wrap{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    &.show{
+        display: flex
+    }
+    input{
+        width: 300px;
+        height: auto;
+        line-height: 40px;
+        padding: 4px 10px;
+    }
+    button{
+        background: none;
+        border: 0;
+        padding: 10px;
+        margin-left: 10px;
+        background-color: red;
+        color: white;
+        cursor: pointer;
+    }
+}
+
+.youtube-list{
+    width: 100%;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: left;
+    column-gap: 30px;
+    row-gap: 50px;
+    box-sizing: content-box;
+    .my-video{
+        width: 100%;
+    }
+    .video-item{
+        width: calc(33.3333% - 20px);
+        word-break: break-all;
+        img{
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        h3{
+            margin-top: 16px;
+            font-size: 20px;
+            letter-spacing: -1px;
+            font-size: 16px;
+        }
+        p{
+            font-size: 14px;
+            margin-top: 20px;
+            &.channelTitle{
+                font-weight: 600;
+            }
+            &.desc{
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                text-overflow: ellipsis;
+                -webkit-box-orient: vertical;
+            }
+        }
+    }
+    @media only screen and (max-width:1023px){
+        .video-item{
+        width: calc(50% - 15px);
+        }
+    }
+    @media only screen and (max-width:767px){
+        .video-item{
+        width: 100%;
+        }
+    }
+}
+
+
+.account-box{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    .input{
+        width: 45%;
+        height: 50px;
+        input{
+            padding: 5px 15px;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+.popup-wrapper{
+    &.active{
+        display: block;
+        visibility: visible;
+        opacity: 1;
+        transition: all 1s;
+    }
+    transition: all 1s;
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+    width: 100%;
+    position: fixed;
+    right: 0;
+    top: 0;
+    .popup-inner{
+        height: 100vh;
+        background-color: #00000050;
+        position : relative;
+        .video-wrap{
+            position: absolute;
+            top: 50%;
+            left:50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            video{
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}

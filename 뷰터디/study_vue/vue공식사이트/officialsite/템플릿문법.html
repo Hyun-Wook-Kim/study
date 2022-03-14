@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>템플릿 문법</title>
+</head>
+
+<body>
+
+
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<script>
+    // 1. 데이터 바인딩의 기본 형태는 'Mustache {{}}'' 구문을 이용한 텍스트 보간.
+    // <span> 메세지 : {{msg}}</span> 은 해당 데이터 객체의 msg 속성 값으로 변경된다.
+
+
+    // <p>Using mustaches: {{ rawHtml }}</p>   
+    // <p>Using v-html directive: <span v-html="rawHtml"></span></p>
+    // 이중 중괄호는 HTML이 아니라 일반 텍스트로 데이터를 해석한다  v-html 속성을 이용하면 데이터 바인딩은 무시하고 HTML로 출력되지만, 사용하지 않는 것을 권장.
+
+
+    // 2. <div v-bind:id = "dynamicId"></div>      v-bind : (바인드 할 것 / id data class 등등) = "바인드할이름"
+    // 데이터 바인딩 내에서 Javascript의 표현식도 사용 가능합니다.
+    //  {{number + 1}}
+    // {{ok? 'YES' : 'NO'}}
+    // {{message.split('').reverse()... 등등}}
+
+    // 단, 하나의 단일 표현식만 가능해 아래의 작성은 불가능합니다.
+    //         <!-- 아래는 구문입니다, 표현식이 아닙니다. -->
+    // {{ var a = 1 }}
+
+    // <!-- 조건문은 작동하지 않습니다. 삼항 연산자를 사용해야 합니다. -->
+    // {{ if (ok) { return message } }}
+
+
+
+    // 3. 디렉티브(v-)  디렉티브의 속성값은 단일 JavaScript 표현식이 된다. (v-for는 제외)
+    // 디렉티브의 역할 = 값이 변경될 때 반응적으로 DOM에 적용하는 것.
+
+    // 일부 디렉티브는 콜론으로 표시되는 '전달인자' 사용 가능.
+    // <a v-bind:href = "url"></a>  href는 전달인자로, href속성을 url값에 바인드 한다.
+
+
+    //디렉티브 .(점) 뒤에는 특수 접미사로 특별한 방법으로 바인딩 해야함을 나타냅니다.
+    // ex)) .prevent는 트리거된 이벤트에서 event.preventdefault()를 호출하도록 v-on에게 알려줍니다.
+
+    //자바스크립트 표현식을  [  ] 로 묶어 전달인자에 사용할 수 있다. (대문자, 따옴표, 스페이스바 등은 제외)
+
+
+    // v-bind와 v-on의 약어
+    // <a v-bind:href='url'></a>    ==> <a :href='url'></a> 
+
+    // <a v-on:click="doSomething"></a>  ==> <a @click = "doSomething"></a>
+</script>
+
+
+</html>

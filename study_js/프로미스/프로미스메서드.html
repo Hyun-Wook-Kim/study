@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로미스 메서드</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // //promise.resolve/reject    이미 존재하는 값을 래핑해 프로미스를 생성한다.
+    // const reslovedPromise = Promise.resolve([1, 2, 3]);
+    // reslovedPromise.then((result) => console.log(result))
+    // // sameas
+    // const resolvedPromise2 = new Promise(resolve => resolve([1, 2, 3]));
+    // resolvedPromise2.then(console.log)
+
+    // const rejectedPromise = Promise.reject([1, 2, 3, 4]);
+    // rejectedPromise.catch(console.log)
+    // //sameas
+    // const rejectedPromise2 = new Promise((_, reject) => reject(new Error('error')));
+    // rejectedPromise2.catch(console.log)
+
+
+    // //promise.all은 모든 비동기 처리를 병렬 처리할 때 사용한다.
+    // const requestData1 = () => {
+    //     return new Promise(resolve => setTimeout(() => {
+    //         resolve(1)
+    //     }, 3000))
+    // }
+    // const requestData2 = () => {
+    //     return new Promise(resolve => setTimeout(() => {
+    //         resolve(2)
+    //     }, 2000))
+    // }
+
+    // const requestData3 = () => {
+    //     return new Promise(resolve => setTimeout(() => {
+    //         resolve(3)
+    //     }, 1000))
+    // }
+
+    // // const res = [];
+    // // requestData1().then(data => {
+    // //         res.push(data);
+    // //         console.log(res)
+    // //         return requestData2()
+    // //     })
+    // //     .then(data => {
+    // //         res.push(data);
+    // //         console.log(res)
+    // //         return requestData3()
+    // //     })
+    // //     .then(data => {
+    // //         res.push(data);
+    // //         console.log(res)
+    // //     })
+
+    // // 위 처리는 약 6초가 걸린다. 하지만 앞 처리 결과를 뒤에서 필요로 하지 않기 때문에 굳이 순차적으로 처리할 필요가 없다.
+
+
+    // const requestData4 = () => new Promise(resolve => setTimeout(() => {
+    //     resolve(4)
+    // }, 3000))
+
+    // const requestData5 = () => new Promise(resolve => setTimeout(() => {
+    //     resolve(5)
+    // }, 2000))
+
+    // const requestData6 = () => new Promise(resolve => setTimeout(() => {
+    //     resolve(6)
+    // }, 1000))
+
+    // Promise.all([requestData4(), requestData5(), requestData6()]).then(console.log).catch(console.error)
+    // // Promise.all([프로미스를 요소로 갖는 이터러블인수]) => 모든 프로미스가 fulfileed 상태가 되면 처리 결과를 배열에 저장해 새로ㅜㄴ 프로미스를 반환
+    // // fulfilled 순서와 관계 없이 처리 순서를 보장한다!
+    // // 하나라도 reject 상태가 되면 즉시 종료된다.
+
+    // Promise.all([new Promise((_, reject) => setTimeout(() => reject(new Error('error1')), 3000)),
+    //     new Promise((_, reject) => setTimeout(() => reject(new Error('error2')), 2000)),
+    //     new Promise((_, reject) => setTimeout(() => reject(new Error('error3')), 1000))
+    // ]).then(console.log).catch(console.log) // error3가 가장 먼저 reject 되기 때문에, 나머지 프로미스는 수해오디지 않고 종료된다.
+
+    // Promise.all(['a', 'b', 'c']).then(console.log).catch(console.log) // 받은 인수가 프로미스가 아니면 Promise.resolve로 프로미스로 래핑한다.
+
+
+    const promiseGet = url => fetch(url).then(response => response.json()).catch(console.log);
+
+    const githubIds = ['jeresig', 'ahejlsberg', 'ungmo2'];
+
+    Promise.all(githubIds.map(id => promiseGet(`https://api.github.com/users/${id}`))).then(users => users.map(user =>
+        user.name)).then(result => console.log(result)).catch(console.error)
+
+
+    // promise.race : Promise.all과 동일하나, 가장 먼저 fulfilled되는 프로미스의 처리 결과를 resolve한다.
+
+    Promise.race([
+        new Promise(resolve => setTimeout(() => {
+            resolve(1)
+        }, 3000)),
+        new Promise(resolve => setTimeout(() => {
+            resolve(2)
+        }, 2000)),
+        new Promise(resolve => setTimeout(() => {
+            resolve(3)
+        }, 1000))
+    ]).then(console.log) // resolve(3)반 반환된다.
+
+    Promise.race([
+        new Promise(resolve => setTimeout(() => {
+            resolve(1)
+        }, 3000)),
+        new Promise(resolve => setTimeout(() => {
+            resolve(2)
+        }, 2000)),
+        new Promise((resolve, reject) => setTimeout(() => {
+            reject(new Error('응 안돼'))
+        }, 1000))
+    ]).then(console.log) // reject 시에는 마찬가지로 에러 반환하는 프로미스를 즉시 반환.
+
+
+    //Promise.allSettled  : 전달받은 프로미스가 모두 settled가 되면 처리 결과를 배열로 반환한다.
+
+    Promise.allSettled([
+        new Promise(resolve => setTimeout(() => {
+            resolve(1 > 0)
+        }, 2000)), // fulfilled, value 값을 가진다.
+        new Promise((_, reject) => reject(new Error('에러는 났지만 settled은 된다구요!'))) //rejected, reason 값을 가진다.
+    ]).then(console.log)
+</script>
+
+
+
+
+</html>

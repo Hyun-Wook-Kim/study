@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XMLHttpRequest</title>
+</head>
+
+<body>
+
+</body>
+
+<script>
+    const xhr = new XMLHttpRequest();
+
+    // XMLHttpRequest 객체의 프로퍼티
+    console.log(xhr)
+    console.log(xhr.readyState) // HTTP의 현재 상태를 나타내는 정수 (0~4)
+    console.log(xhr.status) // HTTP 요청에 대한 응답 상태를 나타내는 정수
+    console.log(xhr.statusText) // HTTP 요청에 대한 응답 메시지ㅡㄹ 나타내는 문자열
+    console.log(xhr.responseType) // HTTP 응답 타입
+    console.log(xhr.response) // HTTP 요청에 대한 응답 몸체.
+
+    //XMLHttpRequest 객체의 이벤트 핸들러
+    console.log(xhr.onreadystatechange) // readyState 프로퍼티 값이 변경된 경우.
+    console.log(xhr.onerror) // 에러가 난 경우
+    console.log(xhr.onload) // 요청이 성공적으로 완료된 경우.
+
+    //XMLHttpRequest 객체의 메서드
+    console.log(xhr.open) // HTTP 요청 초기화
+    console.log(xhr.send) // HTTP 요청 전송
+    console.log(xhr.abort) // 이미 전송된 HTTP 요청 중단
+    console.log(xhr.setRequestHeader) // 특정 HTTP 요청 헤더의 값 설정
+
+    // 정적 메서드
+    console.log(xhr.DONE) // 서버 응답 완료 후.
+</script>
+
+</html>

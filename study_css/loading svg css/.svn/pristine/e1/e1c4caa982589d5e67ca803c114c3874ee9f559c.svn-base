@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>loading</title>
+    <!-- <link rel="stylesheet" href="./loading.css"> -->
+    <!-- <script src="./loading.js" defer></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="./loading.css">
+
+</head>
+
+<body>
+        
+    <!-- <div class="css">
+        <div class="loadingBox">
+            <div class="dim"></div>
+            <div class="circle">
+            </div>
+            <div class="text">loading</div>
+        </div>
+    
+        <div class="loadingBox">
+            <div class="dim"></div>
+            <div class="clock">
+                
+            </div>
+        </div>
+    
+    
+        <div class="loadingBox2">
+            <div class="dim">
+                <div class="loadingBar">
+            </div>
+                
+            </div>
+        </div>
+    
+        <div class="loadingBox2">
+            <div class="dim">
+                <div class="loadingDots">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="loadingBox2 DNA">
+            <div class="dim">
+                <div class="loadingDNA">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    
+    
+    </div> -->
+
+
+            <div class="svg gear">
+                <svg width="50px" height="50px" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+                    <circle stroke="#708090" stroke-width="4"  cx="25" cy="25" r="22" stroke-dasharray="9 1" fill="none">
+                        <animateTransform attributeName="transform" begin="0s" dur="5s" type="rotate" from="0 25 25"
+                            to="360 25 25" repeatCount="indefinite" />
+                    </circle>
+    
+    
+                     <circle fill="none" stroke="#708090" stroke-width="3" stroke-miterlimit="15" cx="25" cy="25" r="15"
+                        stroke-dasharray="5 2">
+                        <animateTransform attributeName="transform" begin="0s" dur="12s" type="rotate" from="0 25 25"
+                            to="-360 25 25" repeatCount="indefinite" />
+                    </circle>
+    
+                    <rect width="2px" height="10px" x="18" y="20" fill="#708090fff">
+                        <animateTransform attributeName="transform" begin="-1.2" dur="1s" type="translate"
+                        values="0 5 ; 0 -5 ; 0 5" repeatCount="indefinite" />
+                        <animate attributeName="fill" begin="-1.2s" dur="2s" values="red; orange; yellow; green; blue; darkblue; purple"
+                        repeatCount="indefinite" />
+                    </rect>
+                    <rect width="2px" height="10px" x="22" y="20" fill="#708090fff">
+                        <animateTransform attributeName="transform" begin="-0.8" dur="1s" type="translate"
+                        values="0 5 ; 0 -5 ; 0 5" repeatCount="indefinite" />
+                        <animate attributeName="fill" begin="-0.8s" dur="2s" values="red; orange; yellow; green; blue; darkblue; purple"
+                        repeatCount="indefinite" />
+                    </rect>
+                    <rect width="2px" height="10px" x="26" y="20" fill="#708090fff">
+                        <animateTransform attributeName="transform" begin="-0.4" dur="1s" type="translate"
+                        values="0 5 ; 0 -5 ; 0 5" repeatCount="indefinite" />
+                        <animate attributeName="fill" begin="-0.4s" dur="2s" values="red; orange; yellow; green; blue; darkblue; purplee"
+                        repeatCount="indefinite" />
+                    </rect>
+                    <rect width="2px" height="10px" x="30" y="20" fill="#708090fff">
+                        <animateTransform attributeName="transform" begin="-0" dur="1s" type="translate"
+                        values="0 5 ; 0 -5 ; 0 5" repeatCount="indefinite" />
+                        <animate attributeName="fill" begin="-0s" dur="2s" values="red; orange; yellow; green; blue; darkblue; purple"
+                        repeatCount="indefinite" />
+                    </rect>
+                </svg>
+            </div>
+    
+    
+            <div class="svg loadingcircle">
+                <svg width="50px" height="50px" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <circle cx="25" cy="25" r="20" stroke="#708090" stroke-width="6px" fill="none"
+                        stroke-dasharray="70 250">
+                        <animateTransform attributeName="transform" begin="0s" dur="4s" type="rotate" from="0 25 25"
+                            to="360 25 25" repeatCount="indefinite" />
+                    </circle>
+                    <circle cx="25" cy="25" r="12" stroke="#708090" stroke-width="5px" fill="none" stroke-dasharray="40 250">
+                        <animateTransform attributeName="transform" begin="-1s" dur="3s" type="rotate" from="0 25 25"
+                            to="360 25 25" repeatCount="indefinite" />
+                    </circle>
+                    <circle cx="25" cy="25" r="5" stroke="#708090" stroke-width="4px" fill="none" stroke-dasharray="25 250">
+                        <animateTransform attributeName="transform" begin="-1s" dur="2s" type="rotate" from="0 25 25"
+                            to="360 25 25" repeatCount="indefinite" />
+                    </circle>
+                </svg>
+            </div>
+    
+    
+            <div class="svg">
+                <svg width="50px" height="50px" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+                    <circle fill="none" stroke="#708090" stroke-width="2" stroke-miterlimit="15" cx="25" cy="25" r="10"
+                        stroke-dasharray="12 10">
+    
+                        <animateTransform attributeName="transform" begin="0s" dur="5s" type="rotate" from="0 25 25"
+                            to="360 25 25" repeatCount="indefinite" />
+                        <animate attributeName="fill" begin="-1s" dur="2s" values="#dcdcdc ; #708090; #dcdcdc"
+                            repeatCount="indefinite" />
+                    </circle>
+    
+    
+                    <circle fill="none" stroke="#708090" stroke-width="3" stroke-miterlimit="0" cx="25" cy="25" r="2"
+                        stroke-dasharray="2 1">
+                        <animateTransform attributeName="transform" begin="0s" dur="2s" type="rotate" from="0 25 25"
+                            to="-360 25 25" repeatCount="indefinite" />
+                    </circle>
+    
+    
+                </svg>
+            </div>
+    
+    
+            <div class="svg">
+            <svg width="50px" height="50px" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink">
+                <circle cx="60px" cy="26px" r="2" fill="blue">
+                    <animate attributeName="cx" attributeType="XML" dur="1s" repeatCount="indefinite" from="60" to="17" begin="0"></animate>
+                </circle>
+                <circle cx="60px" cy="26px" r="2" fill="orange">
+                    <animate attributeName="cx" attributeType="XML" dur="1s" repeatCount="indefinite" from="60" to="17" begin="0.3"></animate>
+                </circle>
+                <circle cx="60px" cy="26px" r="2" fill="orange">
+                    <animate attributeName="cx" attributeType="XML" dur="1s" repeatCount="indefinite" from="60" to="17" begin="0.6"></animate>
+                </circle>
+                <circle cx="25px" cy="25px" fill="none" r="5" stroke="orange" stroke-width="10" stroke-dasharray="25" transform = "rotate(17)" transform-origin = "25 25">
+                    <animate attributeName="stroke-dasharray" begin = "0s" dur="0.4s" values="25 ; 32; 25" repeatCount="indefinite"></animate>
+                    <!-- <animateTransform  attributeType = "XML" attributeName="transform" type="rotate" begin = "0s" dur="1s" from="17" to="8" repeatCount="indefinite"></animateTransform> -->
+                    <!-- <animateTransform  attributeType = "XML" attributeName="transform" type="rotate" begin = "0s" dur="0.4s" from="12" to="17" repeatCount="indefinite"></animateTransform> -->
+                </circle>
+                <circle cx="24px" cy="20px" r="1.5" fill="black"></circle>
+            </svg>
+
+            </div>
+    
+
+
+
+</body>
+
+</html>

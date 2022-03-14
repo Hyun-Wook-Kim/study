@@ -1,0 +1,66 @@
+ul, html, body{
+    padding: 0;
+    margin: 0;
+}
+
+li{
+    list-style: none;
+
+}
+
+#wrap{
+    table{
+        width: 100%;
+        td{
+            padding: 20px 10px;
+            text-align: center;
+            // border-top: 2px solid;
+            border-bottom: 1px solid #ccc;
+            &.waiting{
+                background-color: rgb(221, 245, 221);
+            }
+            &.done{
+                background-color: rgb(165, 165, 241);
+            }
+            &.confirming{
+                background-color: khaki;
+            }
+            &.puble{
+                background-color: lemonchiffon;
+            }
+            &.devel{
+                background-color: lightgray;
+            }
+            &.design{
+                background-color: lightpink;
+            }
+            &.veryImportant{
+                background-color: red;
+            }
+        }
+    }
+}
+
+.home{
+    margin-top: 40px;
+    background-color: antiquewhite;
+    padding: 50px;
+
+h2{
+    text-align: center;
+}
+}
+
+textarea{
+    width: 600px;
+}
+
+.router_wrap{
+    width: 100%;
+    text-align: center;
+    a{
+        display: inline-block;
+        padding: 15px;
+        text-decoration: none;
+    }
+}

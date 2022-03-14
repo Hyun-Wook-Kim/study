@@ -1,0 +1,72 @@
+ul, html, body {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
+#wrap table {
+  width: 100%;
+}
+
+#wrap table td {
+  padding: 20px 10px;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+}
+
+#wrap table td.waiting {
+  background-color: #ddf5dd;
+}
+
+#wrap table td.done {
+  background-color: #a5a5f1;
+}
+
+#wrap table td.confirming {
+  background-color: khaki;
+}
+
+#wrap table td.puble {
+  background-color: lemonchiffon;
+}
+
+#wrap table td.devel {
+  background-color: lightgray;
+}
+
+#wrap table td.design {
+  background-color: lightpink;
+}
+
+#wrap table td.veryImportant {
+  background-color: red;
+}
+
+.home {
+  margin-top: 40px;
+  background-color: antiquewhite;
+  padding: 50px;
+}
+
+.home h2 {
+  text-align: center;
+}
+
+textarea {
+  width: 600px;
+}
+
+.router_wrap {
+  width: 100%;
+  text-align: center;
+}
+
+.router_wrap a {
+  display: inline-block;
+  padding: 15px;
+  text-decoration: none;
+}
+/*# sourceMappingURL=project.css.map */

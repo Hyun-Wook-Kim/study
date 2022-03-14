@@ -1,0 +1,442 @@
+body {
+  background-color: #333;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 20px;
+  height: 100vh;
+}
+
+.loadingBox {
+  width: 150px;
+  height: 150px;
+  position: relative;
+}
+.loadingBox .dim {
+  width: 150px;
+  height: 150px;
+  background-color: rgba(0, 0, 0, 0.782);
+  border: 1px solid white;
+}
+.loadingBox .circle {
+  width: 50px;
+  height: 50px;
+  border: 2px solid white;
+  border-top: 2px solid transparent;
+  border-bottom: 2px solid transparent;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  -webkit-animation-name: loading;
+          animation-name: loading;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  transition: all 1s;
+}
+.loadingBox .circle:hover {
+  border-left-color: rosybrown;
+  border-right-color: rosybrown;
+}
+@-webkit-keyframes loading {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+@keyframes loading {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+.loadingBox .clock {
+  width: 50px;
+  height: 50px;
+  border: 2px solid white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+.loadingBox .clock::after {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 2px;
+  background-color: white;
+  position: absolute;
+  top: calc(50%);
+  left: calc(50% - 1px);
+  transform-origin: 0% 0%;
+  -webkit-animation-name: clockHour;
+          animation-name: clockHour;
+  -webkit-animation-duration: 4s;
+          animation-duration: 4s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+}
+.loadingBox .clock::before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 2px;
+  background-color: white;
+  position: absolute;
+  top: calc(50%);
+  left: calc(50% - 1px);
+  transform: rotate(90deg);
+  transform-origin: 0% 0%;
+  -webkit-animation-name: clockMin;
+          animation-name: clockMin;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+}
+@-webkit-keyframes clockHour {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes clockHour {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes clockMin {
+  from {
+    transform: rotate(90deg);
+  }
+  to {
+    transform: rotate(450deg);
+  }
+}
+@keyframes clockMin {
+  from {
+    transform: rotate(90deg);
+  }
+  to {
+    transform: rotate(450deg);
+  }
+}
+.loadingBox .text {
+  font-size: 8px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  -webkit-animation-name: stay;
+          animation-name: stay;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+  transition: all 1s;
+  pointer-events: none;
+}
+
+.loadingBox2 {
+  width: 150px;
+  height: 150px;
+}
+.loadingBox2 .dim {
+  width: 150px;
+  height: 150px;
+  background-color: rgba(0, 0, 0, 0.782);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border: 1px solid white;
+}
+.loadingBox2 .dim .loadingBar {
+  width: 100px;
+  height: 16px;
+  line-height: 16px;
+  background-color: black;
+  position: relative;
+  z-index: 1;
+}
+.loadingBox2 .dim .loadingBar:after {
+  width: 100%;
+  text-align: center;
+  content: "LOADING....";
+  font-size: 5px;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: black;
+}
+.loadingBox2 .dim .loadingBar::before {
+  content: "";
+  width: 0px;
+  height: 20px;
+  background-color: white;
+  position: absolute;
+  top: -2px;
+  left: 0;
+  z-index: 0;
+  -webkit-animation-name: loadingbarprogress;
+          animation-name: loadingbarprogress;
+  -webkit-animation-duration: 15s;
+          animation-duration: 15s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+}
+@-webkit-keyframes loadingbarprogress {
+  0% {
+    width: 0;
+  }
+  50% {
+    width: 100%;
+    opacity: 1;
+  }
+  75% {
+    width: 100%;
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    width: 0;
+  }
+}
+@keyframes loadingbarprogress {
+  0% {
+    width: 0;
+  }
+  50% {
+    width: 100%;
+    opacity: 1;
+  }
+  75% {
+    width: 100%;
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    width: 0;
+  }
+}
+.loadingBox2 .dim .loadingDots {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  position: relative;
+}
+.loadingBox2 .dim .loadingDots > div {
+  -webkit-animation-name: dots;
+          animation-name: dots;
+  -webkit-animation-duration: 1.5s;
+          animation-duration: 1.5s;
+  transform-origin: 40px 40px;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+@-webkit-keyframes dots {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes dots {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.loadingBox2 .dim .loadingDots > div::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  background-color: white;
+  border-radius: 50%;
+  margin: -4px 0 0 -4px;
+}
+.loadingBox2 .dim .loadingDots > div:nth-child(1) {
+  -webkit-animation-delay: -0.05s;
+          animation-delay: -0.05s;
+}
+.loadingBox2 .dim .loadingDots > div:nth-child(1)::after {
+  top: 68px;
+  left: 70px;
+}
+.loadingBox2 .dim .loadingDots > div:nth-child(2) {
+  -webkit-animation-delay: -0.1s;
+          animation-delay: -0.1s;
+}
+.loadingBox2 .dim .loadingDots > div:nth-child(2)::after {
+  top: 73px;
+  left: 64px;
+}
+.loadingBox2 .dim .loadingDots > div:nth-child(3) {
+  -webkit-animation-delay: -0.15s;
+          animation-delay: -0.15s;
+}
+.loadingBox2 .dim .loadingDots > div:nth-child(3)::after {
+  top: 78px;
+  left: 57px;
+}
+.loadingBox2 .dim .loadingDots > div:nth-child(4) {
+  -webkit-animation-delay: -0.2s;
+          animation-delay: -0.2s;
+}
+.loadingBox2 .dim .loadingDots > div:nth-child(4)::after {
+  top: 80px;
+  left: 49px;
+}
+.loadingBox2 .dim .loadingDots > div:nth-child(5) {
+  -webkit-animation-delay: -0.25s;
+          animation-delay: -0.25s;
+}
+.loadingBox2 .dim .loadingDots > div:nth-child(5)::after {
+  top: 81px;
+  left: 40px;
+}
+.loadingBox2 .dim .loadingDots > div:nth-child(6) {
+  -webkit-animation-delay: -0.3s;
+          animation-delay: -0.3s;
+}
+.loadingBox2 .dim .loadingDots > div:nth-child(6)::after {
+  top: 80px;
+  left: 32px;
+}
+.loadingBox2 .dim .loadingDots > div:nth-child(7) {
+  -webkit-animation-delay: -0.35s;
+          animation-delay: -0.35s;
+}
+.loadingBox2 .dim .loadingDots > div:nth-child(7)::after {
+  top: 78px;
+  left: 24px;
+}
+.loadingBox2 .dim .loadingDots > div:nth-child(8) {
+  -webkit-animation-delay: -0.4s;
+          animation-delay: -0.4s;
+}
+.loadingBox2 .dim .loadingDots > div:nth-child(8)::after {
+  top: 73px;
+  left: 17px;
+}
+.loadingBox2 .dim .loadingDNA {
+  transform-style: preserve-3d;
+  perspective: 100px;
+  position: absolute;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+.loadingBox2 .dim .loadingDNA > div {
+  position: relative;
+  transform-style: preserve-3d;
+}
+.loadingBox2 .dim .loadingDNA > div::after {
+  content: "";
+  display: block;
+  width: 2px;
+  height: 2px;
+  background-color: white;
+  border-radius: 50%;
+  margin: 2px 0px;
+  -webkit-animation-name: DNA;
+          animation-name: DNA;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  transition-timing-function: cubic-bezier(0.27, 0.46, 0.95, 0.685);
+  transform: translate3d(10px, 0, 0);
+}
+.loadingBox2 .dim .loadingDNA > div:nth-child(1)::after {
+  -webkit-animation-delay: 0.1s;
+          animation-delay: 0.1s;
+}
+.loadingBox2 .dim .loadingDNA > div:nth-child(2)::after {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+}
+.loadingBox2 .dim .loadingDNA > div:nth-child(3)::after {
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s;
+}
+.loadingBox2 .dim .loadingDNA > div:nth-child(4)::after {
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s;
+}
+.loadingBox2 .dim .loadingDNA > div:nth-child(5)::after {
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+}
+.loadingBox2 .dim .loadingDNA > div:nth-child(6)::after {
+  -webkit-animation-delay: 0.6s;
+          animation-delay: 0.6s;
+}
+.loadingBox2 .dim .loadingDNA > div:nth-child(7)::after {
+  -webkit-animation-delay: 0.7s;
+          animation-delay: 0.7s;
+}
+.loadingBox2 .dim .loadingDNA > div:nth-child(8)::after {
+  -webkit-animation-delay: 0.8s;
+          animation-delay: 0.8s;
+}
+@-webkit-keyframes DNA {
+  25% {
+    transform: translate3d(-10px, 0, 0px) scale(1);
+  }
+  50% {
+    transform: translate3d(10px, 0px, 0px) scale(-1.2);
+  }
+  75% {
+    transform: translate3d(-10px, 0, 0px) scale(1);
+  }
+  100% {
+    transform: translate3d(10px, 0px, 0px) scale(-1.2);
+  }
+}
+@keyframes DNA {
+  25% {
+    transform: translate3d(-10px, 0, 0px) scale(1);
+  }
+  50% {
+    transform: translate3d(10px, 0px, 0px) scale(-1.2);
+  }
+  75% {
+    transform: translate3d(-10px, 0, 0px) scale(1);
+  }
+  100% {
+    transform: translate3d(10px, 0px, 0px) scale(-1.2);
+  }
+}/*# sourceMappingURL=loading.css.map */

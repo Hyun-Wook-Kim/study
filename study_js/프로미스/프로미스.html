@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로미스!</title>
+</head>
+
+<body>
+
+</body>
+
+<script>
+    // promise 생성자 함수는 비동기 처리를 수행할 콜백 함수를, 콜백 함수는 resolve 와 reject 함수를 인수로 받는다.
+    // const promise = new Promise((resolve, reject) => {
+    // if(/*비동기 처리 성공*/) {
+    //     reslove('result')
+    // } else {
+    //     reject('failure reason');
+    // }
+    // })
+    // 콜백함수 내의 비동기 처리가 성공하면 reslove 함수/ 실패하면 reject 함수를 호출한다.
+
+
+    const promiseGet = (url) => {
+        return new Promise((resolve, reject) => {
+            const respond = fetch(url).then(resolve((response) => response.json)).then(data => console.log(
+                    data))
+                .catch(reject(() => {
+                    console.log('에러남')
+                }))
+        })
+    }
+    promiseGet('https://jsonplaceholder.typicode.com/posts/1')
+
+
+    //fulfilled 된 프로미스
+    const fulfilled = new Promise(resolve => resolve(1)) // resolve 의 결과값은 1
+    console.log(fulfilled)
+
+    const rejected = new Promise((_, reject) => reject(new Error('error가 발생핬습니다.')))
+    console.log(rejected)
+</script>
+
+</html>

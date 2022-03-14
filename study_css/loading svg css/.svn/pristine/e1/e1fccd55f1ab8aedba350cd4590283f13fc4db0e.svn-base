@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h2>Loading...</h2>
+    <h3>CSS</h3>
+    <section class="wrap">
+        <!-- ////////////////////////////////// -->
+        <style>
+            .roading_01 svg {
+                animation: spin 6s infinite reverse linear;
+            }
+
+            .roading_01 svg circle {
+                fill: #0a9882;
+                animation: size 0.8s infinite alternate-reverse ease-in-out;
+            }
+
+            .roading_01 svg circle:nth-child(8) {
+                -webkit-animation-delay: -0.2s;
+                animation-delay: -0.2s;
+            }
+
+            .roading_01 svg circle:nth-child(7) {
+                -webkit-animation-delay: -0.4s;
+                animation-delay: -0.4s;
+            }
+
+            .roading_01 svg circle:nth-child(6) {
+                -webkit-animation-delay: -0.6s;
+                animation-delay: -0.6s;
+            }
+
+            .roading_01 svg circle:nth-child(5) {
+                -webkit-animation-delay: -0.8s;
+                animation-delay: -0.8s;
+            }
+
+            .roading_01 svg circle:nth-child(4) {
+                -webkit-animation-delay: -1s;
+                animation-delay: -1s;
+            }
+
+            .roading_01 svg circle:nth-child(3) {
+                -webkit-animation-delay: -1.2s;
+                animation-delay: -1.2s;
+            }
+
+            .roading_01 svg circle:nth-child(2) {
+                -webkit-animation-delay: -1.4s;
+                animation-delay: -1.4s;
+            }
+
+            .roading_01 svg circle:nth-child(1) {
+                -webkit-animation-delay: -1.6s;
+                animation-delay: -1.6s;
+            }
+
+
+            @keyframes size {
+                0% {
+                    r: 2;
+                }
+
+                100% {
+                    r: 3;
+                }
+            }
+
+            @keyframes spin {
+                0% {
+                    -webkit-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                }
+
+                100% {
+                    -webkit-transform: rotate(360deg);
+                    transform: rotate(360deg);
+                }
+            }
+        </style>
+        <div class="roading_01">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="-35 -35 70 70" width="80" height="80">
+                <circle cx="0%" cy="-25%" r="2"></circle>
+                <circle cx="18%" cy="-18%" r="2"></circle>
+                <circle cx="25%" cy="0" r="2"> </circle>
+                <circle cx="18%" cy="18%" r="2"></circle>
+                <circle cx="0" cy="25%" r="2"></circle>
+                <circle cx="-18%" cy="18%" r="2"> </circle>
+                <circle cx="-25%" cy="0" r="2"></circle>
+                <circle cx="-18%" cy="-18%" r="2"></circle>
+            </svg>
+        </div>
+        <!-- ////////////////////////////////// -->
+        <style>
+            .roading_02 svg {
+                transform: rotate(180deg);
+            }
+
+            .roading_02 svg circle {
+                fill: #0a9882;
+                animation: sizeAndColor 0.8s infinite alternate-reverse;
+            }
+
+            .roading_02 svg circle:nth-child(1) {
+                -webkit-animation-delay: -1.6s;
+                animation-delay: -1.6s;
+            }
+
+            .roading_02 svg circle:nth-child(2) {
+                -webkit-animation-delay: -1.4s;
+                animation-delay: -1.4s;
+            }
+
+            .roading_02 svg circle:nth-child(3) {
+                -webkit-animation-delay: -1.2s;
+                animation-delay: -1.2s;
+            }
+
+            .roading_02 svg circle:nth-child(4) {
+                -webkit-animation-delay: -1s;
+                animation-delay: -1s;
+            }
+
+            .roading_02 svg circle:nth-child(5) {
+                -webkit-animation-delay: -0.8s;
+                animation-delay: -0.8s;
+            }
+
+            .roading_02 svg circle:nth-child(6) {
+                -webkit-animation-delay: -0.6s;
+                animation-delay: -0.6s;
+            }
+
+            .roading_02 svg circle:nth-child(7) {
+                -webkit-animation-delay: -0.4s;
+                animation-delay: -0.4 s;
+            }
+
+            .roading_02 svg circle:nth-child(8) {
+                -webkit-animation-delay: -0.2s;
+                animation-delay: -0.2s;
+            }
+
+            @keyframes sizeAndColor {
+                0% {
+                    r: 3;
+                    opacity: 1;
+                }
+
+                100% {
+                    r: 2;
+                    opacity: 0.1;
+                }
+            }
+        </style>
+        <div class="roading_02">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="-35 -35 70 70" width="80" height="80">
+                <circle cx="0%" cy="-25%" r="2"></circle>
+                <circle cx="18%" cy="-18%" r="2"></circle>
+                <circle cx="25%" cy="0" r="2"> </circle>
+                <circle cx="18%" cy="18%" r="2"></circle>
+                <circle cx="0" cy="25%" r="2"></circle>
+                <circle cx="-18%" cy="18%" r="2"> </circle>
+                <circle cx="-25%" cy="0" r="2"></circle>
+                <circle cx="-18%" cy="-18%" r="2"></circle>
+            </svg>
+        </div>
+        <!-- ////////////////////////////////// -->
+
+        <style>
+            .roading_03 svg rect {
+                fill: #0a9882;
+                opacity: 0.2;
+                animation: color 0.8s infinite alternate-reverse;
+            }
+
+            .roading_03 svg rect:nth-child(1) {
+                -webkit-animation-delay: -1.6s;
+                animation-delay: -1.6s;
+            }
+
+            .roading_03 svg rect:nth-child(2) {
+                -webkit-animation-delay: -1.4s;
+                animation-delay: -1.4s;
+            }
+
+            .roading_03 svg rect:nth-child(3) {
+                -webkit-animation-delay: -1.2s;
+                animation-delay: -1.2s;
+            }
+
+            .roading_03 svg rect:nth-child(4) {
+                -webkit-animation-delay: -1s;
+                animation-delay: -1s;
+            }
+
+            .roading_03 svg rect:nth-child(5) {
+                -webkit-animation-delay: -0.8s;
+                animation-delay: -0.8s;
+            }
+
+            .roading_03 svg rect:nth-child(6) {
+                -webkit-animation-delay: -0.6s;
+                animation-delay: -0.6s;
+            }
+
+            .roading_03 svg rect:nth-child(7) {
+                -webkit-animation-delay: -0.4s;
+                animation-delay: -0.4s;
+            }
+
+            .roading_03 svg rect:nth-child(8) {
+                -webkit-animation-delay: -0.2s;
+                animation-delay: -0.2s;
+            }
+
+
+            @keyframes color {
+                0% {
+                    opacity: 1;
+                }
+
+                100% {
+                    opacity: 0.2;
+                }
+            }
+        </style>
+        <div class="roading_03">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="-35 -35 70 70" width="80" height="80">
+                <rect y="15%" width="4" height="14" transform="rotate(45 2 2)"></rect>
+                <rect y="15%" width="4" height="14" transform="rotate(90 2 2)"></rect>
+                <rect y="15%" width="4" height="14" transform="rotate(135 2 2)"></rect>
+                <rect y="15%" width="4" height="14" transform="rotate(180 2 2)"></rect>
+                <rect y="15%" width="4" height="14" transform="rotate(225 2 2)"></rect>
+                <rect y="15%" width="4" height="14" transform="rotate(270 2 2)"></rect>
+                <rect y="15%" width="4" height="14" transform="rotate(315 2 2)"></rect>
+                <rect y="15%" width="4" height="14" transform="rotate(360 2 2)"></rect>
+            </svg>
+        </div>
+        <!-- ////////////////////////////////// -->
+        <style>
+            .roading_04 svg rect {
+                fill: #0a9882;
+                opacity: 0.2;
+                animation: color 0.8s infinite alternate-reverse;
+            }
+
+            .roading_04 svg rect:nth-child(1) {
+                -webkit-animation-delay: -1.6s;
+                animation-delay: -1.6s;
+            }
+
+            .roading_04 svg rect:nth-child(2) {
+                -webkit-animation-delay: -1.4s;
+                animation-delay: -1.4s;
+            }
+
+            .roading_04 svg rect:nth-child(3) {
+                -webkit-animation-delay: -1.2s;
+                animation-delay: -1.2s;
+            }
+
+            .roading_04 svg rect:nth-child(4) {
+                -webkit-animation-delay: -1s;
+                animation-delay: -1s;
+            }
+
+            .roading_04 svg rect:nth-child(5) {
+                -webkit-animation-delay: -0.8s;
+                animation-delay: -0.8s;
+            }
+
+            .roading_04 svg rect:nth-child(6) {
+                -webkit-animation-delay: -0.6s;
+                animation-delay: -0.6s;
+            }
+
+            .roading_04 svg rect:nth-child(7) {
+                -webkit-animation-delay: -0.4s;
+                animation-delay: -0.4s;
+            }
+
+            .roading_04 svg rect:nth-child(8) {
+                -webkit-animation-delay: -0.2s;
+                animation-delay: -0.2s;
+            }
+
+
+            @keyframes color {
+                0% {
+                    opacity: 1;
+                }
+
+                100% {
+                    opacity: 0.2;
+                }
+            }
+        </style>
+        <div class="roading_04">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="-35 -35 70 70" width="80" height="80">
+                <rect y="15%" rx="2" ry="2" height="12" width="4" transform="rotate(45 2 2)">></rect>
+                <rect y="15%" rx="2" ry="2" height="12" width="4" transform="rotate(90 2 2)">></rect>
+                <rect y="15%" rx="2" ry="2" height="12" width="4" transform="rotate(135 2 2)"></rect>
+                <rect y="15%" rx="2" ry="2" height="12" width="4" transform="rotate(180 2 2)"></rect>
+                <rect y="15%" rx="2" ry="2" height="12" width="4" transform="rotate(225 2 2)"></rect>
+                <rect y="15%" rx="2" ry="2" height="12" width="4" transform="rotate(270 2 2)"></rect>
+                <rect y="15%" rx="2" ry="2" height="12" width="4" transform="rotate(315 2 2)"></rect>
+                <rect y="15%" rx="2" ry="2" height="12" width="4" transform="rotate(360 2 2)"></rect>
+            </svg>
+        </div>
+        <!-- ////////////////////////////////// -->
+        <style>
+            .roading_05 svg.top circle {
+                animation: upAndDown 0.8s infinite alternate-reverse ease-out;
+            }
+
+            .roading_05 svg.bottom circle {
+                animation: upAndDown 0.8s infinite alternate ease-out;
+            }
+
+            .roading_05 svg circle {
+                fill: #0a9882;
+                opacity: 0.2;
+            }
+
+            .roading_05 svg circle:nth-child(1) {
+                -webkit-animation-delay: -0.2s;
+                animation-delay: -0.2s;
+            }
+
+            .roading_05 svg circle:nth-child(2) {
+                -webkit-animation-delay: -0.4s;
+                animation-delay: -0.4s;
+            }
+
+            .roading_05 svg circle:nth-child(3) {
+                -webkit-animation-delay: -0.6s;
+                animation-delay: -0.6s;
+            }
+
+            .roading_05 svg circle:nth-child(4) {
+                -webkit-animation-delay: -0.8s;
+                animation-delay: -0.8s;
+            }
+
+            .roading_05 svg circle:nth-child(5) {
+                -webkit-animation-delay: -1s;
+                animation-delay: -1s;
+            }
+
+            .roading_05 svg circle:nth-child(6) {
+                -webkit-animation-delay: -1.2s;
+                animation-delay: -1.2s;
+            }
+
+            .roading_05 svg circle:nth-child(7) {
+                -webkit-animation-delay: -1.4s;
+                animation-delay: -1.4s;
+            }
+
+            .roading_05 svg circle:nth-child(8) {
+                -webkit-animation-delay: -1.6s;
+                animation-delay: -1.6s;
+            }
+
+            .roading_05 svg circle:nth-child(9) {
+                -webkit-animation-delay: -1.8s;
+                animation-delay: -1.8s;
+            }
+
+            .roading_05 svg circle:nth-child(10) {
+                -webkit-animation-delay: -2s;
+                animation-delay: -2s;
+            }
+
+            @keyframes upAndDown {
+                0% {
+                    opacity: 1;
+                    cy: -18%;
+                }
+
+                100% {
+                    opacity: 0.5;
+                    fill: #ddd;
+                    cy: 18%;
+                }
+            }
+        </style>
+        <div class="roading_05">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="-35 -35 70 70" width="80" height="80" class="top">
+                <circle class="top" cx="-40%" cy="-10%" r="3"></circle>
+                <circle class="top" cx="-20%" cy="-10%" r="3"></circle>
+                <circle class="top" cx="  0%" cy="-10%" r="3"></circle>
+                <circle class="top" cx=" 20%" cy="-10%" r="3"></circle>
+                <circle class="top" cx=" 40%" cy="-10%" r="3"></circle>
+                <circle class="bottom" cx="-40%" cy="10%" r="3"></circle>
+                <circle class="bottom" cx="-20%" cy="10%" r="3"></circle>
+                <circle class="bottom" cx="  0%" cy="10%" r="3"></circle>
+                <circle class="bottom" cx=" 20%" cy="10%" r="3"></circle>
+                <circle class="bottom" cx=" 40%" cy="10%" r="3"></circle>
+            </svg>
+        </div>
+
+        <style>
+            .roading_06 svg rect {
+                animation: upAndDown2 0.8s infinite alternate ease-out;
+                fill: #0a9882;
+                opacity: 0.2;
+                height: 8px;
+                transform: rotate(-180deg);
+            }
+
+            @keyframes upAndDown2 {
+                0% {
+                    opacity: 0.5;
+                    fill: #ddd;
+                    height: 10px;
+                }
+
+                100% {
+                    opacity: 1;
+                    height: 16px;
+                }
+            }
+
+            .roading_06 svg rect:nth-child(1) {
+                animation-delay: -0.2s;
+            }
+
+            .roading_06 svg rect:nth-child(2) {
+                animation-delay: -0.4s;
+            }
+
+            .roading_06 svg rect:nth-child(3) {
+                animation-delay: -0.6s;
+            }
+
+            .roading_06 svg rect:nth-child(4) {
+                -webkit-animation-delay: -0.8s;
+                animation-delay: -0.8s;
+            }
+
+            .roading_06 svg rect:nth-child(5) {
+                animation-delay: -1s;
+            }
+
+            .roading_06 svg rect:nth-child(6) {
+                animation-delay: -1.2s;
+            }
+
+            .roading_06 svg rect:nth-child(7) {
+                animation-delay: -1.4s;
+            }
+
+            .roading_06 svg rect:nth-child(8) {
+                animation-delay: -1.6s;
+            }
+        </style>
+        <div class="roading_06">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="-35 -35 70 70" width="80" height="80" class="top">
+                <rect x="30%" y="-7" rx="1" ry="1" width="4"></rect>
+                <rect x="15%" y="-7" rx="1" ry="1" width="4"></rect>
+                <rect x="0" y="-7" rx="1" ry="1" width="4"></rect>
+                <rect x="-15%" y="-7" rx="1" ry="1" width="4"></rect>
+                <rect x="-30%" y="-7" rx="1" ry="1" width="4"></rect>
+            </svg>
+        </div>
+
+    </section>
+    <h3>SVG</h3>
+    <section>
+
+        <div>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="-35 -35 70 70" width="80" height="80">
+                <circle fill="#ff0000" cx="0%" cy="-25%" r="2">
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="opacity" values="1;0;1" keyTimes="0;1"
+                        dur="1.6" begin="-1.6" repeatCount="indefinite" />
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="fill" dur="1.6" begin="-1.6"
+                        values="#dddddd; #0a9882; #dddddd;" repeatCount="indefinite" />
+                    <animate attributeName="r" dur="1.6" begin="-1.6" repeatCount="indefinite"
+                        values="2 ; 2.8 ; 3 ; 2.5; 2 " keyTimes="0 ; 0.1; 0.5 ; 0.7; 1 " />
+                </circle>
+                <circle fill="#ff5500" cx="18%" cy="-18%" r="2">
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="opacity" values="1;0" keyTimes="0;1"
+                        dur="1.6" begin="-1.4" repeatCount="indefinite" />
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="fill" dur="1.6" begin="-1.4"
+                        values="#0a9882; #dddddd;" repeatCount="indefinite" />
+                    <animate attributeName="r" dur="1.6" begin="-1.4" repeatCount="indefinite"
+                        values="2 ; 2.8 ; 3 ; 2.5; 2 " keyTimes="0 ; 0.1; 0.5 ; 0.7; 1 " />
+                </circle>
+                <circle fill="#ffee00" cx="25%" cy="0" r="2">
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="opacity" values="1;0" keyTimes="0;1"
+                        dur="1.6" begin="-1.2" repeatCount="indefinite" />
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="fill" dur="1.6" begin="-1.2"
+                        values="#0a9882; #dddddd;" repeatCount="indefinite" />
+                    <animate attributeName="r" dur="1.6" begin="-1.2" repeatCount="indefinite"
+                        values="2 ; 2.8 ; 3 ; 2.5; 2 " keyTimes="0 ; 0.1; 0.5 ; 0.7; 1 " />
+                </circle>
+                <circle fill="#cc00ff" cx="18%" cy="18%" r="2">
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="opacity" values="1;0" keyTimes="0;1"
+                        dur="1.6" begin="-1" repeatCount="indefinite" />
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="fill" dur="1.6" begin="-1"
+                        values="#0a9882; #dddddd;" repeatCount="indefinite" />
+                    <animate attributeName="r" dur="1.6" begin="-1" repeatCount="indefinite"
+                        values="2 ; 2.8 ; 3 ; 2.5; 2 " keyTimes="0 ; 0.1; 0.5 ; 0.7; 1 " />
+                </circle>
+                <circle fill="#00ffee" cx="0" cy="25%" r="2">
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="opacity" values="1;0" keyTimes="0;1"
+                        dur="1.6" begin="-0.8" repeatCount="indefinite" />
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="fill" dur="1.6" begin="-0.8"
+                        values="#0a9882; #dddddd;" repeatCount="indefinite" />
+                    <animate attributeName="r" dur="1.6" begin="-0.8" repeatCount="indefinite"
+                        values="2 ; 2.8 ; 3 ; 2.5; 2 " keyTimes="0 ; 0.1; 0.5 ; 0.7; 1 " />
+                </circle>
+                <circle fill="#00dd55" cx="-18%" cy="18%" r="2">
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="opacity" values="1;0" keyTimes="0;1"
+                        dur="1.6" begin="-0.6" repeatCount="indefinite" />
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="fill" dur="1.6" begin="-0.6"
+                        values="#0a9882; #dddddd;" repeatCount="indefinite" />
+                    <animate attributeName="r" dur="1.6" begin="-0.6" repeatCount="indefinite"
+                        values="2 ; 2.8 ; 3 ; 2.5; 2 " keyTimes="0 ; 0.1; 0.5 ; 0.7; 1 " />
+                </circle>
+                <circle fill="#d5ee00" cx="-25%" cy="0" r="2">
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="opacity" values="1;0" keyTimes="0;1"
+                        dur="1.6" begin="-0.4" repeatCount="indefinite" />
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="fill" dur="1.6" begin="-0.4"
+                        values="#0a9882; #dddddd;" repeatCount="indefinite" />
+                    <animate attributeName="r" dur="1.6" begin="-0.4" repeatCount="indefinite"
+                        values="2 ; 2.8 ; 3 ; 2.5; 2 " keyTimes="0 ; 0.1; 0.5 ; 0.7; 1 " />
+                </circle>
+                <circle fill="#0055ff" cx="-18%" cy="-18%" r="2">
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="opacity" values="1;0" keyTimes="0;1"
+                        dur="1.6" begin="-0.2" repeatCount="indefinite" />
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="fill" dur="1.6" begin="-0.2"
+                        values="#0a9882; #dddddd;" repeatCount="indefinite" />
+                    <animate attributeName="r" dur="1.6" begin="-0.2" repeatCount="indefinite"
+                        values="2 ; 2.8 ; 3 ; 2.5; 2 " keyTimes="0 ; 0.1; 0.5 ; 0.7; 1 " />
+                </circle>
+            </svg>
+        </div>
+
+        <!--4//-->
+        <div>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="-35 -35 70 70" width="80" height="80">
+                <rect y="15%" rx="2" ry="2" width="4" height="10px" transform="rotate(360 2 2)">
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="opacity" values="1;0" keyTimes="0;1"
+                        dur="1.6" begin="-0.2" repeatCount="indefinite" />
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="fill" values="#0a9882; #dddddd;"
+                        dur="1.6" begin="-0.2" repeatCount="indefinite" />
+                </rect>
+                <rect y="15%" rx="2" ry="2" width="4" height="10px" transform="rotate(315 2 2)">
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="opacity" values="1;0" keyTimes="0;1"
+                        dur="1.6" begin="-0.4" repeatCount="indefinite" />
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="fill" values="#0a9882; #dddddd;"
+                        dur="1.6" begin="-0.4" repeatCount="indefinite" />
+
+                </rect>
+                <rect y="15%" rx="2" ry="2" width="4" height="10px" transform="rotate(270 2 2)">
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="opacity" values="1;0" keyTimes="0;1"
+                        dur="1.6" begin="-0.6" repeatCount="indefinite" />
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="fill" values="#0a9882; #dddddd;"
+                        dur="1.6" begin="-0.6" repeatCount="indefinite" />
+                </rect>
+                <rect y="15%" rx="2" ry="2" width="4" height="10px" transform="rotate(225 2 2)">
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="opacity" values="1;0" keyTimes="0;1"
+                        dur="1.6" begin="-0.8" repeatCount="indefinite" />
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="fill" values="#0a9882; #dddddd;"
+                        dur="1.6" begin="-0.8" repeatCount="indefinite" />
+                </rect>
+                <rect y="15%" rx="2" ry="2" width="4" height="10px" transform="rotate(180 2 2)">
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="opacity" values="1;0" keyTimes="0;1"
+                        dur="1.6" begin="-1" repeatCount="indefinite" />
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="fill" values="#0a9882; #dddddd;"
+                        dur="1.6" begin="-1" repeatCount="indefinite" />
+                </rect>
+                <rect y="15%" rx="2" ry="2" width="4" height="10px" transform="rotate(135 2 2)">
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="opacity" values="1;0" keyTimes="0;1"
+                        dur="1.6" begin="-1.2" repeatCount="indefinite" />
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="fill" values="#0a9882; #dddddd;"
+                        dur="1.6" begin="-1.2" repeatCount="indefinite" />
+                </rect>
+                <rect y="15%" rx="2" ry="2" width="4" height="10px" transform="rotate(90 2 2)">
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="opacity" values="1;0" keyTimes="0;1"
+                        dur="1.6" begin="-1.4" repeatCount="indefinite" />
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="fill" values="#0a9882; #dddddd;"
+                        dur="1.6" begin="-1.4" repeatCount="indefinite" />
+                </rect>
+                <rect y="15%" rx="2" ry="2" width="4" height="10px" transform="rotate(45 2 2)">
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="opacity" values="1;0" keyTimes="0;1"
+                        dur="1.6" begin="-1.6" repeatCount="indefinite" />
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="fill" dur="1.6" begin="-1.6"
+                        values="#0a9882; #dddddd;" repeatCount="indefinite" />
+                </rect>
+            </svg>
+        </div>
+        <!--//4-->
+
+        <!--5-->
+        <div>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="-35 -35 70 70" width="80" height="80" class="top">
+                <circle class="top" cx="-40%" cy="-10%" r="3">
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="opacity" values="1;0;1;" keyTimes="0;1"
+                        dur="1.6" begin="-1.4" repeatCount="indefinite" />
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="fill" values="#0a9882; #dddddd; #0a9882;"
+                        dur="1.6" begin="-1.4" repeatCount="indefinite" />
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="cy" values="-15%;15%;-15%;" dur="1.6"
+                        begin="-1.4" repeatCount="indefinite" />
+                </circle>
+                <circle class="bottom" cx="-40%" cy="10%" r="3">
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="opacity" values="0;1;0;" keyTimes="0;1"
+                        dur="1.6" begin="-1.4" repeatCount="indefinite" />
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="fill" values="#dddddd; #0a9882; #dddddd;"
+                        dur="1.6" begin="-1.4" repeatCount="indefinite" />
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="cy" values="15%;-15%;15%;" dur="1.6"
+                        begin="-1.4" repeatCount="indefinite" />
+                </circle>
+
+                <circle class="top" cx="-20%" cy="-10%" r="3">
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="opacity" values="1;0;1;" keyTimes="0;1"
+                        dur="1.6" begin="-1.2" repeatCount="indefinite" />
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="fill" values="#0a9882; #dddddd; #0a9882;"
+                        dur="1.6" begin="-1.2" repeatCount="indefinite" />
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="cy" values="-15%;15%;-15%;" dur="1.6"
+                        begin="-1.2" repeatCount="indefinite" />
+                </circle>
+                <circle class="bottom" cx="-20%" cy="10%" r="3">
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="opacity" values="0;1;0;" keyTimes="0;1"
+                        dur="1.6" begin="-1.2" repeatCount="indefinite" />
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="fill" values="#dddddd; #0a9882; #dddddd;"
+                        dur="1.6" begin="-1.2" repeatCount="indefinite" />
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="cy" values="15%;-15%;15%;" dur="1.6"
+                        begin="-1.2" repeatCount="indefinite" />
+                </circle>
+
+                <circle class="top" cx="  0%" cy="-10%" r="3">
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="opacity" values="1;0;1;" keyTimes="0;1"
+                        dur="1.6" begin="-1" repeatCount="indefinite" />
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="fill" values="#0a9882; #dddddd; #0a9882;"
+                        dur="1.6" begin="-1" repeatCount="indefinite" />
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="cy" values="-15%;15%;-15%;" dur="1.6"
+                        begin="-1" repeatCount="indefinite" />
+                </circle>
+                <circle class="bottom" cx="  0%" cy="10%" r="3">
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="opacity" values="0;1;0;" keyTimes="0;1"
+                        dur="1.6" begin="-1" repeatCount="indefinite" />
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="fill" values="#dddddd; #0a9882; #dddddd;"
+                        dur="1.6" begin="-1" repeatCount="indefinite" />
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="cy" values="15%;-15%;15%;" dur="1.6"
+                        begin="-1" repeatCount="indefinite" />
+                </circle>
+
+                <circle class="top" cx=" 20%" cy="-10%" r="3">
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="opacity" values="1;0;1;" keyTimes="0;1"
+                        dur="1.6" begin="-0.8" repeatCount="indefinite" />
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="fill" values="#0a9882; #dddddd; #0a9882;"
+                        dur="1.6" begin="-0.8" repeatCount="indefinite" />
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="cy" values="-15%;15%;-15%;" dur="1.6"
+                        begin="-0.8" repeatCount="indefinite" />
+                </circle>
+                <circle class="bottom" cx=" 20%" cy="10%" r="3">
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="opacity" values="0;1;0;" keyTimes="0;1"
+                        dur="1.6" begin="-0.8" repeatCount="indefinite" />
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="fill" values="#dddddd; #0a9882; #dddddd;"
+                        dur="1.6" begin="-0.8" repeatCount="indefinite" />
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="cy" values="15%;-15%;15%;" dur="1.6"
+                        begin="-0.8" repeatCount="indefinite" />
+                </circle>
+
+                <circle class="top" cx=" 40%" cy="-10%" r="3">
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="opacity" values="1;0;1;" keyTimes="0;1"
+                        dur="1.6" begin="-0.4" repeatCount="indefinite" />
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="fill" values="#0a9882; #dddddd; #0a9882;"
+                        dur="1.6" begin="-0.4" repeatCount="indefinite" />
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="cy" values="-15%;15%;-15%;" dur="1.6"
+                        begin="-0.4" repeatCount="indefinite" />
+                </circle>
+                <circle class="bottom" cx=" 40%" cy="10%" r="3">
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="opacity" values="0;1;0;" keyTimes="0;1"
+                        dur="1.6" begin="-0.4" repeatCount="indefinite" />
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="fill" values="#dddddd; #0a9882; #dddddd;"
+                        dur="1.6" begin="-0.4" repeatCount="indefinite" />
+                    <animate xmlns="http://www.w3.org/2000/svg" attributeName="cy" values="15%;-15%;15%;" dur="1.6"
+                        begin="-0.4" repeatCount="indefinite" />
+                </circle>
+            </svg>
+        </div>
+        <!--//5-->
+
+        <div>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="-35 -35 70 70" width="80" height="80" class="top">
+                <g transform="rotate(180)">
+                    <rect x="30%" y="-7" rx="1" ry="1" width="4" height="10">
+                        <animate xmlns="http://www.w3.org/2000/svg" attributeName="opacity" values="1;0;1"
+                            keyTimes="0;1" dur="1.6" begin="-1.4" repeatCount="indefinite" />
+                        <animate xmlns="http://www.w3.org/2000/svg" attributeName="fill" dur="1.4" begin="-1.6"
+                            values="#dddddd; #0a9882; #dddddd;" repeatCount="indefinite" />
+                        <animate attributeName="height" dur="1.6" begin="-1.4" repeatCount="indefinite"
+                            values="10 ; 12 ; 14 ; 10 " keyTimes="0 ; 0.23; 0.5 ; 1 " />
+                    </rect>
+                </g>
+
+                <g transform="rotate(180)">
+                    <rect x="15%" y="-7" rx="1" ry="1" width="4" height="10">
+                        <animate xmlns="http://www.w3.org/2000/svg" attributeName="opacity" values="1;0;1"
+                            keyTimes="0;1" dur="1.6" begin="-1.2" repeatCount="indefinite" />
+                        <animate xmlns="http://www.w3.org/2000/svg" attributeName="fill" dur="1.6" begin="-1.2"
+                            values="#dddddd; #0a9882; #dddddd;" repeatCount="indefinite" />
+                        <animate attributeName="height" dur="1.6" begin="-1.2" repeatCount="indefinite"
+                            values="10 ; 12 ; 14 ; 10 " keyTimes="0 ; 0.23; 0.5 ; 1 " />
+                    </rect>
+                </g>
+
+                <g transform="rotate(180)">
+                    <rect x="0" y="-7" rx="1" ry="1" width="4" height="10">
+                        <animate xmlns="http://www.w3.org/2000/svg" attributeName="opacity" values="1;0;1"
+                            keyTimes="0;1" dur="1.6" begin="-1" repeatCount="indefinite" />
+                        <animate xmlns="http://www.w3.org/2000/svg" attributeName="fill" dur="1.6" begin="-1"
+                            values="#dddddd; #0a9882; #dddddd;" repeatCount="indefinite" />
+                        <animate attributeName="height" dur="1.6" begin="-1" repeatCount="indefinite"
+                            values="10 ; 12 ; 14 ; 10 " keyTimes="0 ; 0.23; 0.5 ; 1 " />
+                    </rect>
+                </g>
+
+                <g transform="rotate(180)">
+                    <rect x="-15%" y="-7" rx="1" ry="1" width="4" height="10">
+                        <animate xmlns="http://www.w3.org/2000/svg" attributeName="opacity" values="1;0;1"
+                            keyTimes="0;1" dur="1.6" begin="-0.8" repeatCount="indefinite" />
+                        <animate xmlns="http://www.w3.org/2000/svg" attributeName="fill" dur="1.6" begin="-0.8"
+                            values="#dddddd; #0a9882; #dddddd;" repeatCount="indefinite" />
+                        <animate attributeName="height" dur="1.6" begin="-0.8" repeatCount="indefinite"
+                            values="10 ; 12 ; 14 ; 10 " keyTimes="0 ; 0.23; 0.5 ; 1 " />
+                    </rect>
+                </g>
+
+                <g transform="rotate(180)">
+                    <rect x="-30%" y="-7" rx="1" ry="1" width="4" height="10">
+                        <animate xmlns="http://www.w3.org/2000/svg" attributeName="opacity" values="1;0;1"
+                            keyTimes="0;1" dur="1.6" begin="-0.6" repeatCount="indefinite" />
+                        <animate xmlns="http://www.w3.org/2000/svg" attributeName="fill" dur="1.6" begin="-0.6"
+                            values="#dddddd; #0a9882; #dddddd;" repeatCount="indefinite" />
+                        <animate attributeName="height" dur="1.6" begin="-0.6" repeatCount="indefinite"
+                            values="10 ; 12 ; 14 ; 10 " keyTimes="0 ; 0.23; 0.5 ; 1 " />
+                    </rect>
+                </g>
+
+            </svg>
+        </div>
+
+
+    </section>
+
+    <script src="jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script type="module">
+
+
+    // module js는 모듈화 된 자바스크립트 파일로,
+    // 같은 전역 스코프를 공유하지 않고 별도의 독자적인 모듈 스코프를 가진다!.
+    let x = 1;
+    console.log(x)
+
+    
+    // import { pi, square } from "./모듈2.mjs";
+    // console.log(pi, square);
+
+    import {pi as PI, square as SQUARE} from './모듈2.mjs'
+    console.log(PI, SQUARE) // 요롷게 이르믕ㄹ 바꿔서 import 할 수 있다.
+
+    import * as module from './모듈1.mjs'
+    console.log(module.a)
+    console.log(module.plus) // *로 import한 식별자는 as 뒤 객체의 프로퍼티로 할당이 된다.
+
+    // default로 export한 애는 임의의 이름으로 불러올 수 있다.
+    import 아무이름 from './모듈3.mjs'
+    console.log(아무이름(3))
+
+</script>
+<script src="./모듈1.mjs" type="module">
+    // 여기서의 x는 2가 정상적으로 출력된다!
+</script>
+<script src="./모듈2.mjs" type="module"></script>
+
+</html>

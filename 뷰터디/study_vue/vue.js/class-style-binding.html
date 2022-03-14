@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클래스와 스타일 바인딩</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <div v-bind:class="classObject"></div>
+    </div>
+
+    <div id="app2">
+        <div v-bind:class="[activeClass, errorClass]"></div>
+    </div>
+
+</body>
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            isActive: true,
+            error: null
+        },
+        computed: {
+            classObject: function () {
+                return {
+                    active: this.isActive && !this.error,
+                    'text-danger': this.error && this.error.type === 'fatal'
+                }
+            }
+        }
+    })
+
+    new Vue({
+        el: '#app2',
+        data: {
+            activeClass: 'active',
+            errorClass: 'text-danger'
+        }
+    })
+</script>
+
+</html>

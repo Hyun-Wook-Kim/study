@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+<script>
+    // TRY, CATCH
+    console.log('start!')
+    try {
+        foo();
+    } catch (err) {
+        console.error(err)
+    } finally {
+        console.log('end')
+    }
+
+
+    // throw문 : error 생성자로 에러 객체를 만든다고 에러가 발생하는 건 아니다.    
+    try {
+        new Error('something wrong'); // 에러가 표시되지 않는다.
+    } catch (error) {
+        coonsole.log(error)
+    }
+
+    try {
+        throw new Error('something wrong') // throw를 해 주어야 실제 에러가 발생된다.
+    } catch (err) {
+        console.log(err)
+    }
+
+
+    const repeat = (n, f) => {
+        if (typeof f !== 'function') throw new Error('this is not a function!');
+        for (let i = 0; i < n; i++) {
+            f(i)
+        }
+    }
+    try {
+        repeat(2, 1) // 에러가 발생하면
+    } catch (err) {
+        console.log(err) // 에러 처리 코드 실행문으로 점프!
+    }
+
+    // 에러의 전파.
+    const foo = () => {
+        throw Error('foo에서 에러 발생')
+    };
+    const bar = () => {
+        foo();
+    };
+    const baz = () => {
+        bar();
+    };
+
+    try {
+        baz();
+    } catch (err) {
+        console.error(err)
+    } // 에러는 호출자 방향으로 전파된다. 여기서 에러는 foo에서 발생하고, bar, baz,를 통해 전역까지 전달이 되어 모든 프로그램이 멈추게 됨.
+</script>
+
+</html>

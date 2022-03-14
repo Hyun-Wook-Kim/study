@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>조건부 렌더링</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <h1 v-if="awesome === 'yes'">Vue is Awesome</h1>
+        <h1 v-else-if="awesome ==='hmm'">well it could be awesome</h1>
+        <h1 v-else>no Vue is not awsome</h1>
+    </div>
+
+
+    <div id="app2">
+        <div v-if="logintype">
+            <label for="">사용자 이름</label>
+            <input type="text" placeholder="사용자 이름을 입력하세요" key="usernameInput">
+        </div>
+        <div v-else>
+            <label for="">비밀번호</label>
+            <input type="text" placeholder="사용자 비밀번호를 입력하세요" key="userpwInput">
+        </div>
+        <button @click="toggle">로그인 유형 변경</button>
+    </div>
+
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<script>
+    let vm1 = new Vue({
+        el: '#app',
+        data: {
+            awesome: 'shit',
+        }
+    })
+
+    let vm2 = new Vue({
+        el: '#app2',
+        data: {
+            logintype: true,
+
+        },
+        methods: {
+            toggle: function () {
+                this.logintype = !this.logintype
+            }
+        },
+
+    })
+</script>
+
+</html>

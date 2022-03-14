@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=">
+    <title>timer</title>
+</head>
+
+<body>
+
+
+</body>
+
+
+
+<script>
+    // <!-- settimeout -->
+
+    const timerId = setTimeout((name) => {
+        console.log(`Hi! ${name}`)
+    }, 1000, 'Lee'); // 세번째 인수로 콜백 함수에 전달해야 할 인수를 전달할 수 있다.
+    const timerId2 = setTimeout((name) => {
+        console.log(`Hi! ${name}`)
+    }, 1000, 'Lee'); // 세번째 인수로 콜백 함수에 전달해야 할 인수를 전달할 수 있다.
+
+    console.log(timerId)
+    console.log(timerId)
+    // 타이머 함수는 고유의 타이머 ID를 반환한다.
+
+    clearTimeout(timerId) // 타이머 ID를 통해 호출 스케쥴링을 취소할 수 있다.
+
+
+    // setInterval()
+    let timer = 1;
+    const timeIntervalId = setInterval((message) => {
+        console.log(message, timer)
+            ++timer
+        if (timer > 5) {
+            clearInterval(timeIntervalId)
+        }
+    }, 1000, '째깍째깍')
+</script>
+
+</html>

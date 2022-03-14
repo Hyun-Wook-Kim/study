@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XMLH</title>
+</head>
+
+<body>
+
+
+
+</body>
+
+<Script>
+    //http 요청은 다음 순서로 전송한다.
+    // 1. open 메서드로 HTTP 요청 초기화.
+    // 2. 필요에 따라 setRequestHeader로 특정 HTTP 요청의 헤더 값 설정.
+    // 3. send 메서드로 요청을 전송.
+
+    // const xhr = new XMLHttpRequest();
+
+
+    //  1. open
+    // xhr.open('GET', '/users', true); // method, url, async
+
+    // 2. send
+    // GET 방식은 데이터를 URL 일부분인 쿼리 문자열로 전송
+    // POST 방식은 데이터를 요청 몸체에 담아 전송.
+    //  데이터를 전달할 경우 객체라면 직렬화를 한 다음 전달해야 한다!
+    // xhr.send(JSON.stringify({
+    //     id: 1,
+    //     content: 'HTML',
+    //     completed: false
+    // }))
+    // 메서드가 GET인 겨우 send 메서드에 페이로드로 전달된 인수는 무시되고, 요청 몸체는 null이 된다.
+
+
+
+    // 3. setRequestHeader
+    // 특정 HTTP 요청의 헤더 값 설정. content-type과 accept
+
+    //text/ plain, html, css, javascript
+    //application/ json, x-www-form-urlencode
+    // multipart / formed-data
+
+    // const xhr2 = new XMLHttpRequest();
+    // xhr2.open('POST', '/users')
+    // 이 데이터의 타입은 application/json 입니다!
+    // xhr2.setRequestHeader('content-type', 'application/json');
+    // xhr2.send(JSON.stringify({
+    //     id: 1,
+    //     content: 'HTML',
+    //     completed: false
+    // }));
+
+    // 서버가 응답할 데이터의 MIME 타입을 Accept로 지정할 수 있다.
+    // xhr2.setRequestHeader('accept', 'application/json');
+    // 헤더를 설정하지 않으면 send 메서드가 호출될 때 헤더가 */*로 전송된다.
+
+
+
+    //HTTP 응답 처리
+    // 서버가 전송한 응답을 처리하려면 XMLHttpRequest 객체가 발생시키는 이벤트를 캐치해야 한다.
+    // const xhr = new XMLHttpRequest();
+    // xhr.open('GET', 'https://jsonplaceholder.typicode.com/todos/1');
+    // xhr.send();
+    // xhr.onreadystatechange = () => {
+    //     console.log(xhr.readyState)
+    //     if (xhr.readyState !== XMLHttpRequest.DONE) return;
+
+    //     //상태 200은 정상적으로 응답된 상태
+    //     if (xhr.status === 200) {
+    //         console.log(JSON.parse(xhr.response));
+    //     } else {
+    //         console.error('Error', xhr.status, xhr.statusText)
+    //     }
+    // }
+
+    //요렇게만 써도 됨.
+    // xhr.onload = () => {
+    //     if (xhr.status === 200) {
+    //         console.log(JSON.parse(xhr.response));
+    //     } else {
+    //         console.error('Error', xhr.status, xhr.statusText)
+    //     }
+    // }
+
+
+    ///////////////////////////////////////////////////////////////////////////////// 위에 건 옛날 방식이란다.
+
+
+    fetch('https://codingapple1.github.io/price.json')
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error('400 or 500 에러가 남.')
+            }
+            return response.json();
+        })
+        .then((결과) => {
+            console.log(결과)
+        })
+        .catch(() => {
+            console.log('에러남')
+        })
+</Script>
+
+</html>

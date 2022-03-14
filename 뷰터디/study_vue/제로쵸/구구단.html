@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구구단</title>
+</head>
+
+<body>
+    <div id="root">
+        <p>{{ first }} 곱하기 {{ second }} 는?</p>
+        <form action="" v-on:submit="onSubmitForm">
+            <!-- ref는 this.$reft.ref이름 으로 접근 가능 -->
+            <input type="number" v-model="value" ref="answer">
+            <button type="submit" @click="onSubmitForm">입력!</button>
+        </form>
+        <div id='result'> {{ result }} </div>
+    </div>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<script>
+    const app = new Vue({
+        el: '#root',
+        data: {
+            first: Math.ceil(Math.random() * 9),
+            second: Math.ceil(Math.random() * 9),
+            value: '',
+            answer: '',
+            result: '',
+        },
+        methods: {
+            onSubmitForm(e) {
+                e.preventDefault();
+                if (this.first * this.second == this.value) {
+                    this.result = "정답"
+                    this.first = Math.ceil(Math.random() * 9)
+                    this.second = Math.ceil(Math.random() * 9)
+                    this.value = "";
+                } else {
+                    this.result = "오답"
+                    this.value = "";
+                }
+                this.$refs.answer.focus()
+                console.log(this.first * this.second, this.result, this.value)
+
+            }
+        }
+    })
+</script>
+
+</html>

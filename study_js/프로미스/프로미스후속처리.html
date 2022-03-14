@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>후속처리</title>
+</head>
+
+<body>
+
+</body>
+
+<script>
+    // // then
+    // // filfileed
+    // new Promise((resolve) => resolve('done')).then(v => console.log(v), e => console.log(e))
+
+    // //rejected
+    // new Promise((_, reject) => reject(new Error('rejected'))).then(v => console.log(v), e => console.log(e))
+    // // then 메서드는 언제나 프로미스를 반환한다.
+
+
+    // // catch   rejected일 때만 호출
+    // //reject
+    // new Promise((_, reject) => reject(new Error('rejected'))).catch((e) => console.log(e))
+    // new Promise((_, reject) => reject(new Error('rejected'))).then(undefined, (e) => console.log(e)) // 이거랑 같다.
+
+
+    // finally   성공 여부와 상관없이 무조건 한 번 호출
+    // new Promise((resolve, reject) => {}).then(v => console.log(v), e => console.log(e)).finally(() => console.log(
+    //     'finally'))
+
+    const promiseGet = url => {
+        return new Promise((resolve, reject) => {
+            fetch(url).then(resolve('됐어용!')).catch(reject('안됐어용!'))
+        })
+
+    };
+    promiseGet('https://codingapple1.github.io/price.jsoㅜ').then((res) => console.log(res)).catch((err) => console.log(
+        err)).finally(() => {
+        console.log('아모른직다')
+    })
+</script>
+
+</html>

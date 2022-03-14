@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    class Person {
+        constructor(name) {
+            this.name = name;
+        }
+        sayHi() {
+            console.log(`Hi! my name is ${this.name}`)
+        }
+
+        static sayHello() {
+            console.log('Hello!')
+        }
+    }
+
+    const me = new Person('김현욱')
+    me.sayHi();
+    Person.sayHello();
+    // me.sayHello(); static 메서드는 클래스의 메서드다.
+
+    const Person2 = class MyClass {};
+    const me2 = new Person();
+    // const you = new MyClass();  my class 는 클래스의 이름인데, Person2라는 식별자에 직접 연결하면 암묵적 식벽자 myClass는 사라지고 Person2 가 식별자가 된다.
+
+
+    //정적 메서드는 인스턴스 프로퍼티를 참조할 수 없다.
+    class Square {
+        constructor(width, height) {
+            this.width = width;
+            this.height = height;
+        }
+        area() {
+            return this.width * this.height
+        }
+        static length() {
+            return this.width + this.height
+        }
+    }
+
+    const square = new Square(10, 10);
+    console.log(square.area());
+    // console.log(Square.length()) NAN
+
+
+    class Person3 {
+        constructor(firstName, lastName) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+        }
+
+        get fullname() {
+            return this.firstName + ' ' + this.lastName;
+        }
+        set fullname(name) {
+            [this.firstName, this.lastName] = name.split(' ')
+        }
+    }
+    // getter 함수와 setter 함수 
+    const me3 = new Person3('김', '현욱')
+    console.log(me3.fullname);
+    me3.fullname = '기 며눅'
+    console.log(me3.fullname);
+</script>
+
+</html>

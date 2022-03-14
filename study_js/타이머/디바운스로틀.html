@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>디바운스로틀</title>
+    <style>
+        .container {
+            width: 300px;
+            height: 300px;
+            background-color: bisque;
+            overflow: scroll;
+        }
+
+        .content {
+            width: 300px;
+            height: 1000vh;
+        }
+    </style>
+</head>
+
+<body>
+
+    <input type="text">
+    <div class="msg"></div>
+
+    <div class="container">
+        <div class="content"></div>
+    </div>
+    <div>
+        <span class="normal-count">0</span>
+    </div>
+    <div>
+        <span class="throttle-count">0</span>
+    </div>
+
+</body>
+<script>
+    //디바운스
+    // 디바운스는 짧은 시간 간격으로 발생하는 이벤트를 그룹화 해 마지막에 한 번만 호출되도록 한다.
+    const $input = document.querySelector('input');
+    const $msg = document.querySelector('.msg');
+
+    const debounce = (callback, delay) => {
+        let timerId;
+        //debounce 함수는 timerId를 기억하는 클로저를 반환.
+        return () => {
+            if (timerId) clearTimeout(timerId);
+            timerId = setTimeout(callback, delay, event)
+            console.log(timerId)
+        }
+    }
+
+    $input.addEventListener('input', debounce((e) => {
+        $msg.textContent = e.target.value;
+    }, 500))
+
+
+    // 스로틀 : 스로틀은 짧은 시간 간격으로 이벤트가 연속으로 발새해도, 일정 시간 간격으로 한번씩만 호출되도록 만든다.
+    const $container = document.querySelector('.container');
+    const $normalCount = document.querySelector('.normal-count')
+    const $throttleCount = document.querySelector('.throttle-count')
+
+    const throttle = (callback, delay) => {
+        let timerId
+        return (event) => {
+            if (timerId) return;
+            timerId = setTimeout(() => {
+                callback(event);
+                timerId = null;
+            }, delay, event)
+        }
+    }
+    let normalCount = 0;
+    $container.addEventListener('scroll', () => {
+        $normalCount.textContent = ++normalCount
+    })
+    let throttleCount = 0;
+    $container.addEventListener('scroll', throttle(() => {
+        $throttleCount.textContent = ++throttleCount;
+    }, 100))
+
+
+
+    //  실무에서는 Underscore나 Lodash의 함수들을 사요하는 걸 권장한다고 한다. (그게 뭔데;)
+</script>
+
+</html>

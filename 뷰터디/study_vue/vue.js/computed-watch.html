@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>computed</title>
+</head>
+
+<body>
+    <div id="root">
+        {{fullName}}
+    </div>
+
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/axios@0.12.0/dist/axios.min.js"></script>
+<script src="https://unpkg.com/lodash@4.13.1/lodash.min.js"></script>
+
+<script>
+    let app1 = new Vue({
+        el: '#root',
+        data: {
+            firstName: 'Foo',
+            lastName: 'Bar'
+        },
+        computed: {
+            fullName: {
+                get: function () {
+                    return this.firstName + this.lastName
+                },
+                set: function (newValue) {
+                    this.firstName = newValue.split(' ')[0]
+                    this.lastName = newValue.split(' ')[1]
+                }
+            }
+
+        }
+
+    })
+</script>
+
+
+</html>

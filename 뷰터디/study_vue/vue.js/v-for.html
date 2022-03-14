@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열반복문</title>
+</head>
+
+<body>
+
+
+    <ul id="example-1">
+        <li v-for="(item , index) in items" v-bind:key="index">
+            {{parentMessage }} - {{item.message}}
+        </li>
+    </ul>
+
+
+    <ul id="example-2" class="demo">
+        <li v-for="(a, b, c) in object">
+            {{ c }} - {{ b }} : {{ a }}
+        </li>
+    </ul>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<script>
+    let vm1 = new Vue({
+        el: '#example-1',
+        data: {
+            parentMessage: 'Parent',
+            items: [{
+                    message: 'foo'
+                },
+                {
+                    message: 'Bar'
+                }
+            ]
+        }
+    })
+
+
+    let vm2 = new Vue({
+        el: '#example-2',
+        data: {
+            object: {
+                title: 'how to lists in vue',
+                author: 'jane doe',
+                publishedAt: '2021-11-20',
+            }
+        }
+    })
+</script>
+
+</html>
