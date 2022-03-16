@@ -34,7 +34,6 @@ const router = async () => {
     };
   });
   // routes 를 순회하면서 route 와 isMatch를 키값으로 가지는 새로운 객체 생성.
-  console.log(potentialMatch);
 
   // 그 객체에서 객체.isMatch가 true인 애만 찾아 냄.
   let match = potentialMatch.find(
