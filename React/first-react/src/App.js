@@ -5,13 +5,13 @@
 // import IterationSample from "./IterationSample";
 // import LifeCycleSample from "./LifeCycleSample";
 // import ErrorBoundary from "./ErrorBoundary";
-import { Component } from "react";
+import { Component, useState } from "react";
 import Counter from "./Counter";
-
+import Info from "./Info";
+import Average from "./Average";
 // const App = () => {
 //   return <EventPractice />;
 // };
-
 
 // function getRandomColor() {
 //   return `#` + Math.floor(Math.random() * 16777215).toString(16)
@@ -27,7 +27,6 @@ import Counter from "./Counter";
 //     this.setState({color : getRandomColor()})
 //   }
 
-
 //   render() {
 //     return (
 //       <div>
@@ -40,11 +39,14 @@ import Counter from "./Counter";
 //   }
 // }
 
-class App extends Component{
-  render(){
-    return <Counter></Counter>
-  }
-}
+const App = () => {
+  // const [visible, setVisible] = useState(false);
 
+  return (
+    <>
+      <Average></Average>
+    </>
+  );
+};
 
 export default App;
