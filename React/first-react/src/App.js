@@ -44,7 +44,7 @@ const App = () => {
 
   return (
     <>
-      <Average></Average>
+      <Info />
     </>
   );
 };

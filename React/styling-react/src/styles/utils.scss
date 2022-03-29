@@ -1,0 +1,5 @@
+@mixin square($size){
+    $calculate : 32px * $size;
+    width : $calculate;
+    height: $calculate;
+}

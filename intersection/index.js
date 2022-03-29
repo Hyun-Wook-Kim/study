@@ -15,10 +15,6 @@ const callback = (entries, observer) => {
 };
 
 const observer = new IntersectionObserver(callback, option);
-
-// let target = document.querySelector("#section3");
-// observer.observe(target);
-
 const section = document.querySelectorAll(".part");
 
 section.forEach((el) => {
