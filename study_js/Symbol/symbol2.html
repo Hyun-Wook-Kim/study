@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symbol</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+    const symbol1 = Symbol();
+    console.log(symbol1)
+
+
+    // 문자열은 설명용. 값에는 영향 X
+    const symbol2 = Symbol('심볼설명2')
+    console.log(symbol2)
+
+    // 여기서 문자열은 설명이 아니라 key값이라는 듯?
+    const symbol3 = Symbol.for('심볼1')
+    console.log(Symbol.for('심볼1') === symbol3)
+
+    // keyfor로 해당 심볼의 키 값을 추출함.
+    console.log(Symbol.keyFor(symbol3))
+
+    // 단순히 Symbol 함수로 호출하는 심벌 값은 key 등록이 되지 않음.
+
+    const symbol4 = Symbol('foo')
+    console.log(Symbol.keyFor(symbol4))
+
+    // 심벌 값으로 프로퍼티 키를 지정하면 열거되지 않는다.
+        // 심벌 값을 프로퍼티 키나, 심벌 값으로 접근할 때는 대괄호를 붙혀 주어야 함.
+    const object = {
+        a:1,
+        b:2,
+        [Symbol()] : '이건 심벌 값'
+    }
+    for (const key in object){
+        console.log(key)
+    }
+    console.log(Object.keys(object))
+
+    // 근데 또 이거로는 찾을 수 있다고 함.
+    console.log(Object.getOwnPropertySymbols(object)) // 얘는 심볼 프로퍼티 키만 찾아냄. 뭐야 이거....
+
+</script>
+</html>

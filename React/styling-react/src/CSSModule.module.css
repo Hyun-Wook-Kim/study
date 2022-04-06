@@ -1,0 +1,13 @@
+.wrapper{
+    background: black;
+    padding: 1rem;
+    color: white;
+    font-size: 2rem;
+}
+
+
+/* 전역에서 사용되는 경우 */
+:global .something{
+    font-weight: 600;
+    color: aqua;
+}

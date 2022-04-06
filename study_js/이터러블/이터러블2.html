@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이터러블</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+
+
+    // 이터러블 객체는 for of, 스프레드, 디스트럭처링이 가능함.
+    const array1 = [1,2,3];
+    for(const item of array1){
+        console.log(item)
+    }
+    console.log([...array1])
+
+    const object1 = {
+        a : 1,
+        b: 2,
+    }
+
+    // 근데 객체도 이제 개겣 리터럴 내에서 스프레드 할 수 있음.
+    console.log({...object1})
+
+    // Symbol.iterator 메서드는 이터레이터 프로토콜을 준수하는 이터레이터를 반환 함.
+    const iterator1 = array1[Symbol.iterator]();
+    console.log(iterator1);
+    console.log('next' in iterator1) // 이터레이터는 next 메서드를 가짐.
+    
+    // array1 의 이터레이터 next 는 value 와 done 프로퍼티를 가진 이터레이터 리벌트 객체를 반환한다.
+    console.log(iterator1.next())
+    console.log(iterator1.next())
+    console.log(iterator1.next())
+    console.log(iterator1.next())
+
+
+{
+    // 피보나치 수열로 이터러블 연습
+
+
+    const fibonacci = function(max){
+        let [pre, cur] = [0,1];
+        return{
+            [Symbol.iterator](){
+                return{
+                    next(){
+
+                    }
+                }
+
+            }
+        }
+    }
+
+
+    // 위 예시처럼 작성하면, iterator를 호출하기 위해서는 먼저 이터러블을 생성하고, 그 이터러블의 Symbol.iterator를 호출해야함. (귀찮음)
+    const iterable = fibonacci(10)
+    const iterator = iterable[Symbol.iterator]();
+    console.log(iterator.next())
+    console.log(iterator.next())
+    console.log(iterator.next())
+    console.log(iterator.next())
+    console.log(iterator.next())
+    console.log(iterator.next())
+
+    
+    
+    const fibonacci2 = function(max){
+        let [pre, cur] = [0,1];
+        return{
+            [Symbol.iterator](){ 
+                console.log(this)
+                return this;
+            },
+            next(){
+                [pre, cur] = [cur, pre + cur]
+                return { value : cur, done : cur >= max}
+            }
+        }
+        
+    }
+
+
+    let iter = fibonacci2(10)
+
+    console.clear();
+    console.log(iter.next());
+    console.log(iter.next());
+    console.log(iter.next());
+    console.log(iter.next());
+    console.log(iter.next());
+
+}
+
+
+
+</script>
+</html>
