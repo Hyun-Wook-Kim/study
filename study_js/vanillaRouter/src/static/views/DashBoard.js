@@ -9,6 +9,7 @@ export default class extends AbstractView {
     return `
       <h1> welcome. this is dashboard </h1>
       <p>이 페이지는 dash board 페이지입니다.</p>
+
       `;
   }
 }
