@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스프레드</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+
+    // 스프레드 문법의 결과물은 값이 아닌 값들의 목록이다. 즉 값으로 사용이 불가능하다
+
+    const arr = [1,2,3];
+    // const spread = ...[1,2,3,4];
+    // console.log(spread)
+    
+    // 대신 함수 호출문의 인수, 배열 리터럴의 요소, 객체 리터털의 프로퍼티 목록등으로는 가능
+    const arr2 = [...arr]
+    console.log(arr2)
+
+
+    // 이제 객체도 스프레드 쓸 수 있음!
+
+    const obj1 = {a:1, b:2};
+    const copy = {...obj1}
+    console.log(copy)
+
+    const obj2 = {c:3, d:4}
+
+    const newObj = {...obj1, ...obj2}
+    console.log(newObj)
+</script>
+</html>

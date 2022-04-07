@@ -1,0 +1,10 @@
+// @import '~include-media/dist/include-media';
+// @import '~open-color/open-color';
+
+
+
+@mixin square($size){
+    $calculate : 32px * $size;
+    width : $calculate;
+    height: $calculate;
+}

@@ -11,6 +11,9 @@ const navigateTo = (url) => {
 
 const router = async () => {
   // 각 path에 따른 경로 값과, 경로가 일치할 때 실행할 함수.
+
+
+
   const routes = [
     {
       path: "/",
@@ -35,12 +38,17 @@ const router = async () => {
   });
   // routes 를 순회하면서 route 와 isMatch를 키값으로 가지는 새로운 객체 생성.
 
+  
   // 그 객체에서 객체.isMatch가 true인 애만 찾아 냄.
   let match = potentialMatch.find(
     (potentialMatch) => potentialMatch.isMatch == true
-  );
+    );
+    
+  
 
   // 일치하는 거 없으면 기본값. (여기서 보통 404 Not Found를 해주기도 함.)
+
+  console.log(match)
   if (!match) {
     match = {
       route: routes[0],
@@ -51,6 +59,7 @@ const router = async () => {
   // path랑 일치하는 routes 찾아서, 해당 js가 가지고 있는 class를 생성함.
   const view = new match.route.view();
   document.querySelector("#app").innerHTML = await view.getHtml(); // 그리고 해당 클래스의 getHtml()을 비동기로 실행! (서버에서 가져올수도 있으니까)
+
 };
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -63,7 +72,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (e.target.matches("[data-link]")) {
       e.preventDefault();
-      console.log(e.target);
       const url = e.target.href;
       navigateTo(url);
     }
@@ -74,3 +82,4 @@ document.addEventListener("DOMContentLoaded", () => {
     router();
   });
 });
+ 
