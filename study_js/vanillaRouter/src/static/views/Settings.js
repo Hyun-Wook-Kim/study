@@ -20,6 +20,7 @@ export default class extends AbstractView {
       <div class="subRouter"></div>
       
       `;
+      
   }
 
   subRouter(){
@@ -31,9 +32,9 @@ export default class extends AbstractView {
         const targetUrl = e.target.href;
         console.log(targetUrl)
         history.pushState(null, null, targetUrl)
+        this.example()
       }
 
-      this.example()
     
     })
 
