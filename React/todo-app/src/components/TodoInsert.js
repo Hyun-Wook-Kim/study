@@ -1,35 +1,32 @@
+import './TodoInsert.scss';
+import {MdAdd} from 'react-icons/md'
 import { useCallback, useState } from 'react';
-import {MdAdd} from 'react-icons/md';
-import './TodoInsert.scss'
 
-const TodoInsert = ({onInsert}) => {
 
-     const [value, setValue] = useState('')
+
+
+
+const TodoInsert = ({ onInsert }) => {
+
+    const [value, setValue] = useState('')
 
     const onChange = useCallback((e)=>{
-        setValue(e.target.value);
-    }, [])
-
-    const onSubmit = useCallback((e)=>{
-        e.preventDefault();
-        
-        onInsert(value);
-        setValue('')
-    })
-
-    // 빈 배열 넣으면 
+        setValue(e.target.value)
+    },[])
 
     return(
-        <form className='TodoInsert' onSubmit={onSubmit}>
-            <input placeholder='할 일을 입력 하세요' onChange={onChange} value={value}></input>
-            <button type='submit'>
-            <div className="add">
-                <MdAdd/>
-            </div>
+        <form className='TodoInsert'>
+            <input placeholder='할 일을 입력하세요' onChange={onChange} value={value}>
+            </input>
+            <button onClick={(e) => {
+                e.preventDefault();
+                onInsert(value)
+                setValue('')
+            }}>
+                <MdAdd></MdAdd>
             </button>
-            
         </form>
     )
 }
 
-export default TodoInsert
+export default TodoInsert;

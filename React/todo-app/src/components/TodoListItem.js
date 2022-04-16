@@ -1,30 +1,31 @@
-import './TodoListItem.scss';
-
-import{
-    MdCheckBoxOutlineBlank,
+import {
+    MdCheckBoxOutlineBlank, 
     MdCheckBox,
     MdRemoveCircleOutline,
-} from 'react-icons/md'
+} from 'react-icons/md';
 
-const TodoListItem = ({todo, onRemove, onToggle}) => {
+import './TodoListItem.scss'
+import React from 'react';
 
+const TodoListItem = ( {todo, onRemove, onToggle, style} ) => {
     return(
-        <div className='TodoListItem'>
-            <div className={todo.checked ? 'checkbox checked' : 'checkbox'} onClick={() => {onToggle(todo.id)}}>
-                {todo.checked ? <MdCheckBox /> : <MdCheckBoxOutlineBlank/>}
-                <div className='text'>
-                {todo.text}
+        <div className='TodoListItem-virtualized' style={style}>
+            <div className='TodoListItem'>
+                <div className={todo.checked ? 'checkbox checked' : 'checkbox' } onClick={() => {
+                    // console.log(todo.id);
+                    onToggle(todo.id)
+                }}>
+                    {todo.checked ? <MdCheckBox></MdCheckBox> : <MdCheckBoxOutlineBlank></MdCheckBoxOutlineBlank>}
+                    <div className='text'>{todo.text}</div>
+                </div>
+                <div className='remove' onClick={() => onRemove(todo.id)}>
+                    <MdRemoveCircleOutline></MdRemoveCircleOutline>
                 </div>
             </div>
-
-            <div className='remove' onClick={() => {onRemove(todo.id)}}>
-                <MdRemoveCircleOutline/>
-            </div>
-
-
         </div>
+
 
     )
 }
 
-export default TodoListItem;
+export default React.memo(TodoListItem);
