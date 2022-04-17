@@ -18,6 +18,7 @@ export default class extends AbstractView {
       <a href="?display" class="sub-router" data-sub-router>화면설정</a>
       <div class="subRouter"></div>
       `;
+      
   }
 
   subRouter() {
@@ -26,12 +27,23 @@ export default class extends AbstractView {
         e.preventDefault();
         console.log("이건 서브 라우터임");
         const targetUrl = e.target.href;
+<<<<<<< HEAD
         console.log(targetUrl);
         history.pushState(null, null, targetUrl);
       }
 
       this.example();
     });
+=======
+        console.log(targetUrl)
+        history.pushState(null, null, targetUrl)
+        this.example()
+      }
+
+    
+    })
+
+>>>>>>> cf140cbb5c7786ac39fffbbfe7f9e59edec73685
   }
 
   example() {
