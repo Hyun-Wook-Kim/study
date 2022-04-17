@@ -11,7 +11,6 @@ const navigateTo = (url) => {
 };
 
 const router = async () => {
-  console.log("라우팅 작동!");
   const routes = [
     {
       path: "/",
@@ -63,6 +62,7 @@ const router = async () => {
   if (match.route.path === "/search") {
     const search = new match.route.view();
     search.getHtml();
+    console.log(search)
   } else {
     document.querySelector(".input-wrap").classList.remove("show");
   }
@@ -78,8 +78,10 @@ const router = async () => {
   }
 
   if (match.route.path === "/details") {
+    console.log('디테일페이지')
     const Details = new match.route.view();
     Details.getHtml();
+    Details.iframeInit();
   }
 
   // match.route.view();
@@ -89,6 +91,28 @@ window.addEventListener("popstate", router);
 
 document.addEventListener("DOMContentLoaded", () => {
   router();
+
+
+    const Detail = new Details();
+
+    document.addEventListener("click", (e) => {
+      if (e.target.classList.contains("video-item")) {
+        console.log(e.target.dataset.id)
+        detailRouter(e.target.dataset.id);
+      } else if (e.target.parentNode.classList.contains("video-item")) {
+        console.log(e.target.parentNode.dataset.id)
+        detailRouter(e.target.parentNode.dataset.id);
+      }
+    });
+
+    function detailRouter(id) {
+      const detailUrl = `/details?video=${id}`;
+      history.pushState(null, null, detailUrl);
+      Detail.getHtml(id);
+      Detail.iframeInit();
+
+    }
+
 
   document.querySelector(".menu-button").addEventListener("click", () => {
     document.querySelector(".nav").classList.add("active");
