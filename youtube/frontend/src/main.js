@@ -3,10 +3,7 @@ import Main from "./views/Main.js";
 import Search from "./views/Search.js";
 import Myvideo from "./views/Myvideo.js";
 import Account from "./views/Account.js";
-
-// const app = new YoutubeMain();
-
-//history.pushState(state, title, url)
+import Details from "./views/Details.js";
 
 const navigateTo = (url) => {
   history.pushState(null, null, url);
@@ -14,6 +11,7 @@ const navigateTo = (url) => {
 };
 
 const router = async () => {
+  console.log("라우팅 작동!");
   const routes = [
     {
       path: "/",
@@ -30,6 +28,10 @@ const router = async () => {
     {
       path: "/account",
       view: Account,
+    },
+    {
+      path: "/details",
+      view: Details,
     },
   ];
 
@@ -75,10 +77,15 @@ const router = async () => {
     Account.getHtml();
   }
 
+  if (match.route.path === "/details") {
+    const Details = new match.route.view();
+    Details.getHtml();
+  }
+
   // match.route.view();
 };
 
-// window.addEventListener("popstate", router);
+window.addEventListener("popstate", router);
 
 document.addEventListener("DOMContentLoaded", () => {
   router();

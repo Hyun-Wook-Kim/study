@@ -298,4 +298,18 @@
   width: 100%;
   height: 100%;
 }
+
+.video-detail {
+  width: 100%;
+  position: relative;
+  padding-top: 56.25%;
+}
+
+.video-detail iframe {
+  position: absolute;
+  left: 0;
+  top: 0%;
+  width: 100%;
+  height: 100%;
+}
 /*# sourceMappingURL=youtubemain.css.map */

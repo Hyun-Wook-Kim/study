@@ -1,5 +1,6 @@
 import YoutubeService from "../services/youtube.service.js";
 // import observer from "../observer.js";
+import Details from "../views/Details.js";
 
 export default class YoutubeMain {
   constructor() {
@@ -45,13 +46,13 @@ export default class YoutubeMain {
     });
     // document.querySelectorAll(".video-item").forEach((el) => {
     //   el.addEventListener("click", (event) => {
-    //     const id = event.currentTarget.dataset.id;
+    //     const id = event.currentTarget..id;
     //     this._videoDetail(id);
     //   });
     // });
   }
   async _searchList(query) {
-    // document.querySelector(".youtube-list").innerHTML = "";
+    document.querySelector(".youtube-list").innerHTML = "";
     await this._youtube.search(query);
     this._youtube._videoList.forEach((video) => {
       this._drawYoutubeList(video);
@@ -59,8 +60,11 @@ export default class YoutubeMain {
   }
   _drawYoutubeList(video) {
     const { snippet } = video;
+    console.log(video.id.videoId);
 
-    const elem = `<div class="video-item" data-id=${video.id} >
+    const videoId = video.id.videoId ? video.id.videoId : video.id;
+
+    const elem = `<div class="video-item" data-id="${videoId}"  >
     <img src=${snippet.thumbnails.high.url}>
     <h3 class="title">${snippet.title}</h3>
     <p class="channelTitle">${snippet.channelTitle}</p>
@@ -85,10 +89,25 @@ export default class YoutubeMain {
     );
   }
 
-  // async _videoDetail(id) {
-  //   const selectedVideo = await fetch(
-  //     `https://www.googleapis.com/youtube/v3/videos?key=AIzaSyATiRsLlNU1-g6HIbwJC_yhaOr6xM_tQEs&part=snippet&id=${id}`
-  //   );
-  //   console.log(selectedVideo);
-  // }
+  _videoDetail() {
+    const Detail = new Details();
+
+    document.addEventListener("click", (e) => {
+      if (e.target.classList.contains("video-item")) {
+        console.log(e.target.dataset.id);
+        detailRouter(e.target.dataset.id);
+      } else if (e.target.parentNode.classList.contains("video-item")) {
+        console.log(e.target.parentNode.dataset.id);
+        detailRouter(e.target.parentNode.dataset.id);
+      }
+    });
+
+    function detailRouter(id) {
+      console.log(window.location.href);
+      const detailUrl = window.location.href + "details" + `?${id}`;
+      history.pushState(null, null, detailUrl);
+      console.log(document.querySelector(".video-detail  iframe"));
+      Detail.getHtml(id);
+    }
+  }
 }

@@ -14,5 +14,6 @@ export default class extends AbstractView {
     inner.classList.add("youtube-list");
     document.querySelector(".app").append(inner);
     main._youtubeList();
+    main._videoDetail();
   }
 }

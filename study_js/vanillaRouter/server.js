@@ -2,6 +2,7 @@ const express = require("express"); // require 은 node.js 의 import 라고 생
 // 기본적으로 node_modules 폴더 안에서 express를 찾아 활용한다.
 
 const path = require("path"); // path 찾아서 써먹을 거야. 이건 폴더와 파일의 경로를 지정해주는 모듈임.
+const { default: Settings } = require("./src/static/views/Settings");
 
 const app = express(); // app 변수에다가 express의 함수 반환값을 저장함. REST end Point를 생성할 거임.
 
@@ -26,3 +27,10 @@ app.get("/*", (req, res) => {
 
 // 서버를 열어줄 건데, 앞에건 모르겠고, 지정된 값이 따로 없으면 port 5060을 쓴다.
 app.listen(process.env.PORT || 5050, () => console.log("server is running"));
+
+{
+  //www.naver.com  (index.html index.js)
+  // index.html
+  // index.js
+  //www.naver.com/settings/account
+}

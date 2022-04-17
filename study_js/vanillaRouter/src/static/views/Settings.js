@@ -1,14 +1,13 @@
 import AbstractView from "./AbstractView.js";
 import EnvSettings from "./EnvSettings.js";
-import AccountSettings from './AccountSettings.js'
-import DisplaySettings from './DisplaySettings.js'
-
+import AccountSettings from "./AccountSettings.js";
+import DisplaySettings from "./DisplaySettings.js";
 
 export default class extends AbstractView {
   constructor() {
     super();
     this.setTitle("Settings");
-    this.subRouter()
+    this.subRouter();
   }
   async getHtml() {
     return `
@@ -18,64 +17,58 @@ export default class extends AbstractView {
       <a href="?account" class="sub-router" data-sub-router>계정설정</a>
       <a href="?display" class="sub-router" data-sub-router>화면설정</a>
       <div class="subRouter"></div>
-      
       `;
   }
 
-  subRouter(){
-    
-    document.addEventListener('click',(e)=>{
-      if(e.target.matches("[data-sub-router]")){
+  subRouter() {
+    document.addEventListener("click", (e) => {
+      if (e.target.matches("[data-sub-router]")) {
         e.preventDefault();
-        console.log('이건 서브 라우터임')
+        console.log("이건 서브 라우터임");
         const targetUrl = e.target.href;
-        console.log(targetUrl)
-        history.pushState(null, null, targetUrl)
+        console.log(targetUrl);
+        history.pushState(null, null, targetUrl);
       }
 
-      this.example()
-    
-    })
-
+      this.example();
+    });
   }
 
-
-  example(){
+  example() {
     const quary = [
       {
-        quary : '?settings',
-        view : EnvSettings,
+        quary: "?settings",
+        view: EnvSettings,
       },
       {
-        quary : '?account',
-        view : AccountSettings,
+        quary: "?account",
+        view: AccountSettings,
       },
       {
-        quary : '?display',
-        view : DisplaySettings,
+        quary: "?display",
+        view: DisplaySettings,
       },
-    ]
-    const currentQuary = '?' + location.search.split('?')[1].toString();
+    ];
+    const currentQuary = "?" + location.search.split("?")[1].toString();
     console.log(currentQuary);
-    const potentialMatch = quary.map((quary)=>{
+    const potentialMatch = quary.map((quary) => {
       return {
-        quary : quary,
-        isMatch : quary.quary === currentQuary
-      }
-    })
-    console.log(potentialMatch)
-    let match = potentialMatch.find((quary) => quary.isMatch === true)
-    console.log(match)
+        quary: quary,
+        isMatch: quary.quary === currentQuary,
+      };
+    });
+    console.log(potentialMatch);
+    let match = potentialMatch.find((quary) => quary.isMatch === true);
+    console.log(match);
 
-    if(!match) {
+    if (!match) {
       match = {
-        quary : quary[0],
-        isMatch : true,
-      }
+        quary: quary[0],
+        isMatch: true,
+      };
     }
 
     const subView = new match.quary.view();
-    document.querySelector('.subRouter').innerHTML =subView.getHtml();
-
+    document.querySelector(".subRouter").innerHTML = subView.getHtml();
   }
 }
