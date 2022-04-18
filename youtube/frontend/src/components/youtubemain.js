@@ -53,6 +53,7 @@ export default class YoutubeMain {
     this._youtube._videoList.forEach((video) => {
       this._drawYoutubeList(video);
     });
+    return query
   }
 
   _memoQuery(query){

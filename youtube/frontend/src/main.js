@@ -5,6 +5,8 @@ import Myvideo from "./views/Myvideo.js";
 import Account from "./views/Account.js";
 import Details from "./views/Details.js";
 
+
+
 const navigateTo = (url) => {
   history.pushState(null, null, url);
   router();
@@ -87,7 +89,7 @@ const router = async () => {
   // match.route.view();
 };
 
-window.addEventListener("popstate", router);
+// window.addEventListener("popstate", router);
 
 document.addEventListener("DOMContentLoaded", () => {
   router();
