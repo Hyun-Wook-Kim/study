@@ -12,6 +12,9 @@ const navigateTo = (url) => {
   router();
 };
 
+let shouldRememberQuery = false
+
+
 const router = async () => {
   const routes = [
     {
@@ -55,18 +58,24 @@ const router = async () => {
     };
   }
 
+;
+
+
   // 라우터에 따른 화면 출력
   if (match.route.path === "/") {
+
     const main = new match.route.view();
     main.getHtml();
   }
 
   if (match.route.path === "/search") {
+    console.log(shouldRememberQuery)
     const search = new match.route.view();
-    search.getHtml();
-    console.log(search)
+    search.getHtml(shouldRememberQuery);
+    shouldRememberQuery = true;
   } else {
     document.querySelector(".input-wrap").classList.remove("show");
+    shouldRememberQuery = false;
   }
 
   if (match.route.path === "/my-video") {
@@ -80,7 +89,6 @@ const router = async () => {
   }
 
   if (match.route.path === "/details") {
-    console.log('디테일페이지')
     const Details = new match.route.view();
     Details.getHtml();
     Details.iframeInit();
@@ -89,7 +97,7 @@ const router = async () => {
   // match.route.view();
 };
 
-// window.addEventListener("popstate", router);
+window.addEventListener("popstate", router);
 
 document.addEventListener("DOMContentLoaded", () => {
   router();

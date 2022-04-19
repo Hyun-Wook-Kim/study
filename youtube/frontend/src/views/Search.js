@@ -1,35 +1,41 @@
 import AbstractView from "./Abstract.js";
 import YoutubeMain from "../components/youtubemain.js";
+import SearchQuery from "../services/SearchQuery.js";
 
 const search = new YoutubeMain();
+const queryStore = new SearchQuery();
 export default class extends AbstractView {
   constructor() {
     super();
     this.setTitle("Search");
-    this.queryStored = 'ㅎㅇ';
   }
   
 
-  async getHtml() {
-    let query;
+  async getHtml(shouldRememberQuery) {
     document.querySelector(".app").innerHTML = "";
     const inner = document.createElement("div");
     inner.classList.add("youtube-list");
     document.querySelector(".app").append(inner);
     document.querySelector(".input-wrap").classList.add("show");
 
-    document.querySelector(".input-wrap input").value = "";
+
+    if (queryStore.query !== '' && shouldRememberQuery){
+      let query = queryStore.query;
+      search._searchList(query);
+      document.querySelector(".input-wrap input").value = query;
+    } else {
+      document.querySelector(".input-wrap input").value = "";
+    }
 
     document.querySelector(".searchBtn").removeEventListener("click", () => {
       search._searchList();
     });
     document.querySelector(".searchBtn").addEventListener("click", async () => {
+      let query;
       const queryStored = await search._searchList(query);
-      this.queryStored = queryStored;
-      console.log(this)
-      
+      queryStore.query = queryStored;
     });
-    console.log(query)
+
 
   }
 
