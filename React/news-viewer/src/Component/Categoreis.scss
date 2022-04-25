@@ -1,0 +1,15 @@
+.category-tab{
+    display: flex;
+    column-gap: 10px;
+    .category{
+        cursor: pointer;
+        &:hover{
+            text-decoration: underline;
+            color: red;
+        }
+        &.active{
+            text-decoration: underline;
+            color: red;
+        }
+    }
+}

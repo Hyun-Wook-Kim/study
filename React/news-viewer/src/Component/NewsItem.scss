@@ -1,0 +1,26 @@
+a{
+    color: black;
+}
+
+
+.articleList{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    
+    .NewsItemBlock{
+        box-sizing: border-box;
+        width: 100%;
+        display: flex;
+        column-gap: 50px;
+        align-items: center;
+        &:not(:first-child){
+            margin-top: 50px;
+        }
+        img{
+            width: 160px;
+            height: 100px;
+        }
+    }
+}
