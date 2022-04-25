@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AXAX 연습</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+    // const obj = {
+    //     "name" : "Lee",
+    //     "age" : 20,
+    //     "alive" : true,
+    //     "hobby" : [`독서`, `기타연습`]    
+    // }
+    // const JsonObj = JSON.stringify(obj, (key, value) => {
+    //     return typeof value === 'boolean' ? undefined : value;
+    // } ,2)
+    // console.log(JsonObj)
+    // // const jsonFilter = (key, value) => {
+    // //     return typeof vlaue === 'number' ? undefined : value;
+    // // }
+
+    
+
+    // const todos = [
+    //     {id: 1, content : "HTML", complted : true},
+    //     {id: 2, content : "CSS", complted : false},
+    //     {id: 3, content : "JS", complted : false},
+    //     {id: 4, content : "ㅇㅅㅇ", complted : false}
+    // ]
+
+    //     const jsonObj = JSON.stringify(todos, null, 1)
+    //     console.log(jsonObj, typeof jsonObj)
+
+
+        
+    // const xhr = new XMLHttpRequest();
+    // xhr.open('POST', 'users');
+    // xhr.setRequestHeader('content-type','application/json');
+    // xhr.send(JSON.stringify({id:1, content:'HTML', completed: true}))
+    
+
+    // xhr.setRequestHeader('accept','application/json'); 서버가 응답할 데이터의 MIME 타입을 Accept로 정의.
+
+
+        const request = new XMLHttpRequest();
+        request.open('GET','https://jsonplaceholder.typicode.com/todos/1')
+        request.send();
+        
+        request.onreadystatechange = () => {
+            //  readystate는 서버 응답ㄷ이 완료 되었는지 여부
+            if(request.readyState  !== XMLHttpRequest.DONE) return
+            
+            // status값이 200이면 정상적으로 응답된 상태임
+            if (request.status === 200){
+                console.log(JSON.parse(request.response))
+            } else{
+                console.error('Error', request.status, request.statusText)
+            }
+        }
+
+
+</script>
+</html>
