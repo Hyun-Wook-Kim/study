@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+
+    </pre>
+</body>
+
+<script>
+    const request = new XMLHttpRequest();
+    request.open('PUT','/todos/5');
+    request.setRequestHeader('content-type','application/json')
+
+    request.send(JSON.stringify({id: 5, content : 'REACT', completed : false}))
+
+    request.onload = () => {
+        if (request.status === 200 || request.status === 201){
+            document.querySelector('pre').textContent = request.response;
+        }
+    }
+</script>
+</html>
