@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,aAAa,CAAA;EACT,OAAO,EAAE,IAAI;EACb,UAAU,EAAE,IAAI;CAYnB;;AAdD,AAGI,aAHS,CAGT,SAAS,CAAA;EACL,MAAM,EAAE,OAAO;CASlB;;AAbL,AAKQ,aALK,CAGT,SAAS,AAEJ,MAAM,CAAA;EACH,eAAe,EAAE,SAAS;EAC1B,KAAK,EAAE,GAAG;CACb;;AART,AASQ,aATK,CAGT,SAAS,AAMJ,OAAO,CAAA;EACJ,eAAe,EAAE,SAAS;EAC1B,KAAK,EAAE,GAAG;CACb",
+    "sources": [
+        "Categoreis.scss"
+    ],
+    "names": [],
+    "file": "Categoreis.css"
+}

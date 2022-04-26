@@ -1,0 +1,66 @@
+.TodoInsert {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.TodoInsert input {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  background-color: black;
+  color: white;
+  line-height: 1.5;
+  border: none;
+  padding: 10px;
+}
+
+.TodoInsert input::-webkit-input-placeholder {
+  color: white;
+}
+
+.TodoInsert input:-ms-input-placeholder {
+  color: white;
+}
+
+.TodoInsert input::-ms-input-placeholder {
+  color: white;
+}
+
+.TodoInsert input::placeholder {
+  color: white;
+}
+
+.TodoInsert button {
+  width: 24px;
+  height: 40px;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.add {
+  width: 16px;
+  height: 16px;
+  color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+/*# sourceMappingURL=TodoInsert.css.map */

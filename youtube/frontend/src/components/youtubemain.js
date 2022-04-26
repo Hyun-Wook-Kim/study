@@ -1,19 +1,19 @@
 import YoutubeService from "../services/youtube.service.js";
-// import observer from "../observer.js";
-import Details from "../views/Details.js";
 
 export default class YoutubeMain {
   constructor() {
     this._youtube = new YoutubeService();
+    this._observer;
   }
   async _youtubeList() {
    await this._youtube.mostPopular();
     this._youtube._videoList.forEach((video) => {
       this._drawYoutubeList(video);
-      const observer = new IntersectionObserver((entries, observer) => {
+
+      this._observer = new IntersectionObserver((entries, observer) => {
         entries.forEach((el) => {
           if (el.isIntersecting) {
-            observer.unobserve(
+            this._observer.unobserve(
               document.querySelectorAll(".video-item")[
               document.querySelectorAll(".video-item").length - 1
               ]
@@ -22,7 +22,8 @@ export default class YoutubeMain {
             this._youtube._videoList.forEach((video) => {
               this._drawYoutubeList(video)
             })
-            observer.observe(
+
+            this._observer.observe(
               document.querySelectorAll(".video-item")[
               document.querySelectorAll(".video-item").length - 1
               ]
@@ -30,12 +31,13 @@ export default class YoutubeMain {
           }
         });
       });
-      observer.observe(
+      this._observer.observe(
         document.querySelectorAll(".video-item")[
         document.querySelectorAll(".video-item").length - 1
         ]
       );
     });
+    this._filter();
 
   }
   async _searchList(query) {
@@ -68,21 +70,73 @@ export default class YoutubeMain {
     document.querySelector(".youtube-list").innerHTML += elem;
   }
 
-  _infiniteScroll() {
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach((el) => {
-        if (el.isIntersecting) {
-          console.log(el + "추가 로드");
-          this._youtubeList();
+  _filter(){
+    if(!document.querySelector('.filter ul')) return;
+
+    if(this._observer){
+      console.log('옵저버 해제')
+      this._observer.unobserve(
+        document.querySelectorAll(".video-item")[
+        document.querySelectorAll(".video-item").length - 1
+        ]
+      );
+    }
+
+
+    document.querySelector('.filter ul').removeEventListener('click',(e)=>{
+      if(e.target.matches('.category-btn')){
+        const category = e.target.dataset.cate;
+
+        let allItem = document.querySelectorAll('.video-item');
+
+        if(category === 'all') {
+            allItem.forEach((el, index)=>{
+              el.classList.remove('hide')
+            })          
         }
-      });
-    });
-    observer.observe(
-      document.querySelectorAll(".video-item")[
-      document.querySelectorAll(".video-item").length - 1
-      ]
-    );
+        else{
+          const group = category.replace('group','');
+          const to =  Number(group) * 10;
+          const from = to - 9;
+          console.log(from, to)
+          allItem.forEach((el, index)=>{
+            if (el.dataset.category >= from && el.dataset.category <= to){
+              el.classList.remove('hide')
+            } else{
+              el.classList.add('hide')
+            }
+          })   
+        }
+
+      }
+    })
+
+    document.querySelector('.filter ul').addEventListener('click',(e)=>{
+      if(e.target.matches('.category-btn')){
+        const category = e.target.dataset.cate;
+
+        let allItem = document.querySelectorAll('.video-item');
+
+        if(category === 'all') {
+            allItem.forEach((el, index)=>{
+              el.classList.remove('hide')
+            })          
+        }
+        else{
+          const group = category.replace('group','');
+          const to =  Number(group) * 10;
+          const from = to - 9;
+          console.log(from, to)
+          allItem.forEach((el, index)=>{
+            if (el.dataset.category >= from && el.dataset.category <= to){
+              el.classList.remove('hide')
+            } else{
+              el.classList.add('hide')
+            }
+          })   
+        }
+
+      }
+    })
   }
-
-
 }

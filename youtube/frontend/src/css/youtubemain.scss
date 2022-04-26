@@ -151,6 +151,11 @@
         width: 100%;
     }
     .video-item{
+
+        &.hide{
+            display: none;
+        }
+        
         width: calc(33.3333% - 20px);
         word-break: break-all;
 

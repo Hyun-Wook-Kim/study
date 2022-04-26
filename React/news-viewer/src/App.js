@@ -4,12 +4,12 @@ import NewPage from './pages/NewPage';
 import { useParams } from "react-router-dom";
 import { useEffect } from 'react';
 
-
+ 
   const App = () => {
 
 
     return(
-      <Routes>
+      <Routes> 
         <Route path="/" element={<NewPage></NewPage>}></Route>
         <Route path="/:category" element={<NewPage></NewPage>}></Route>
       </Routes>
