@@ -1,11 +1,12 @@
 import httpService from "./http.service.js";
 import observer from "../observer.js";
 export default class YoutubeService {
-  _videoList = [];
-  _nextPageToken = "";
 
-  constructor() {}
-  async mostPopular() {
+  constructor() {
+  }
+  async mostPopular(nextPageToken) {
+    nextPageToken = nextPageToken ? nextPageToken : '';
+    console.log(nextPageToken)
     this._request = new httpService(
       "https://www.googleapis.com/youtube/v3/videos",
       "AIzaSyATiRsLlNU1-g6HIbwJC_yhaOr6xM_tQEs",
@@ -14,7 +15,7 @@ export default class YoutubeService {
         regionCode: "kr",
         chart: "mostPopular",
         maxResults: 10,
-        // pageToken: "nextPageToken",
+        pageToken: nextPageToken
       }
     );
     // try catch로 async 예외 처리 및 에러 처리.
