@@ -1,22 +1,16 @@
 .category-tab {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-column-gap: 10px;
-          column-gap: 10px;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
 }
-
 .category-tab .category {
   cursor: pointer;
 }
-
 .category-tab .category:hover {
   text-decoration: underline;
   color: red;
 }
-
 .category-tab .category.active {
   text-decoration: underline;
   color: red;
-}
-/*# sourceMappingURL=Categoreis.css.map */
+}/*# sourceMappingURL=Categoreis.css.map */

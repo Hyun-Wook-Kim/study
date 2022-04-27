@@ -2,16 +2,12 @@
   width: 100px;
   height: 100px;
 }
-
 .box.orange {
   background-color: orange;
 }
-
 .box.green {
   background-color: green;
 }
-
 .box.red {
   background-color: red;
-}
-/*# sourceMappingURL=gsap.css.map */
+}/*# sourceMappingURL=gsap.css.map */

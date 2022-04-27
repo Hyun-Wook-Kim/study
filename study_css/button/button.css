@@ -12,12 +12,8 @@ h1 {
 .button-frame {
   width: 100%;
   padding: rem(50) rem(150);
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
 }
 
 .custom-button {
@@ -26,18 +22,15 @@ h1 {
   color: white;
   border-radius: 10px;
   border: none;
-  -webkit-transition: all 0.4s;
   transition: all 0.4s;
   cursor: pointer;
 }
 
 .btn-1 {
   position: relative;
-  background: #b891f8;
-  background: -webkit-gradient(linear, left top, left bottom, from(#c6a5fc), to(#a200ec));
-  background: linear-gradient(#c6a5fc 0%, #a200ec 100%);
+  background: rgb(184, 145, 248);
+  background: linear-gradient(rgb(198, 165, 252) 0%, rgb(162, 0, 236) 100%);
 }
-
 .btn-1 span {
   position: absolute;
   display: block;
@@ -46,10 +39,8 @@ h1 {
   height: 0px;
   background: white;
   opacity: 0;
-  -webkit-transition: all 0.4s;
   transition: all 0.4s;
 }
-
 .btn-1 span.a {
   width: 0px;
   height: 0px;
@@ -59,10 +50,8 @@ h1 {
   border-top-left-radius: 8px;
   border-bottom-right-radius: 8px;
   border-bottom-left-radius: 1px;
-  -webkit-box-shadow: beige 1px 1px 1px 0px;
-          box-shadow: beige 1px 1px 1px 0px;
+  box-shadow: beige 1px 1px 1px 0px;
 }
-
 .btn-1 span.b {
   width: 0px;
   height: 0px;
@@ -71,28 +60,21 @@ h1 {
   right: 0px;
   border-top-left-radius: 8px;
   border-bottom-right-radius: 8px;
-  -webkit-transition-delay: 0.01s;
-          transition-delay: 0.01s;
-  -webkit-box-shadow: beige -1px -1px 1px 0px;
-          box-shadow: beige -1px -1px 1px 0px;
+  transition-delay: 0.01s;
+  box-shadow: beige -1px -1px 1px 0px;
 }
-
 .btn-1:hover {
   letter-spacing: -1px;
 }
-
 .btn-1:hover span {
   visibility: visible;
   opacity: 1;
 }
-
 .btn-1:hover span.a {
   width: 25px;
   height: 28px;
 }
-
 .btn-1:hover span.b {
   width: 25px;
   height: 28px;
-}
-/*# sourceMappingURL=button.css.map */
+}/*# sourceMappingURL=button.css.map */
