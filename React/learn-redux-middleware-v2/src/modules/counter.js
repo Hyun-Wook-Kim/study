@@ -1,5 +1,5 @@
 import { createAction, handleActions } from 'redux-actions';
-import { delay, put, takeEvery, takeLatest } from 'redux-saga/effects';
+import { delay, put, takeEvery, takeLatest, select, throttle } from 'redux-saga/effects';
 
 
 const INCREASE = 'counter/INCREASE';
@@ -30,6 +30,10 @@ export const decreaseAsync = createAction(DECREASE_ASYNC, () => undefined) // pa
 function* increaseSaga(){
     yield delay(1000);
     yield put(increase())
+    // select 는 사가 내부에서 현재 상태를 참조해야 하는 상황이 생길 경우 사용 함.
+    const number = yield select(state => state.counter);
+    console.log(`현재 값은 ${number} 입니다.`)
+
 }
 function* decreaseSaga(){
     yield delay(1000);
@@ -37,7 +41,9 @@ function* decreaseSaga(){
 }
 
 export function* counterSaga() {
-    yield takeEvery(INCREASE_ASYNC, increaseSaga);
+    // yield takeEvery(INCREASE_ASYNC, increaseSaga);
+    // yield takeLatest(DECREASE_ASYNC, decreaseSaga);
+    yield throttle(3000, INCREASE_ASYNC, increaseSaga);
     yield takeLatest(DECREASE_ASYNC, decreaseSaga);
 }
 
