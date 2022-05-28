@@ -1,48 +1,44 @@
-const INCREASE = 'counter/INCREASE';
-const DECREASE = 'counter/DECREASE';
-
-
+const INCREASE = "counter/INCREASE";
+const DECREASE = "counter/DECREASE";
 
 export const increase = () => {
-    return (
-        {
-            type: INCREASE,
-        }
-    )
-}
+  return {
+    type: INCREASE,
+  };
+};
 export const decrease = () => {
-    return (
-        {
-            type: DECREASE,
-        }
-    )
-}
-
+  return {
+    type: DECREASE,
+  };
+};
 
 const initialState = {
-    number: 0,
-}
-
+  number: 0,
+};
 
 function counter(state = initialState, action) {
-    // console.log(state)
-    switch (action.type) {
+  console.log(state);
+  switch (action.type) {
+    case INCREASE:
+      console.log(state.state.number);
+      return {
+        state: {
+          number: state.state.number + 1,
+        },
+      };
 
-        case INCREASE:
-            console.log(state)
-            return {
-                number: state.number + 1
-            }
-
-        case DECREASE:
-            return {
-                number: state.number - 10
-            }
-        default:
-            return {
-                state
-            }
-    }
+    case DECREASE:
+      console.log(state.state.number);
+      return {
+        state: {
+          number: state.state.number - 1,
+        },
+      };
+    default:
+      return {
+        state,
+      };
+  }
 }
 
 export default counter;

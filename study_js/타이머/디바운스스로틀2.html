@@ -1,53 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>디바운스와 스로틀</title>
 </head>
+
 <body>
-    
+
     <div>
         <button>
             클릭클릭!
         </button>
         <br>
-        <p class="normal">일반 클릭 횟수 : <span>0</span> </p> 
+        <p class="normal">일반 클릭 횟수 : <span>0</span> </p>
         <p class="debounce-click">디바운스 클릭횟수 : <span>0</span> </p>
         <p class="throttle-click">쓰로틀 클릭 함수 : <span>0</span></p>
-
     </div>
-
-
-
 </body>
 
 
 <script>
-        
-    document.querySelector('button').addEventListener('click',()=>{
+    document.querySelector('button').addEventListener('click', () => {
         // document.querySelector('.normal span').innerHTML++
-        debounce(e=>{
-            document.querySelector('.normal span').innerHTML++
-        },400)
+        debounce(event => {
+            document.querySelector('.normal span').textContent++
+            console.log('타이머 실행!')
+        }, 400)
 
     })
 
     // 이벤트가 중복해서 발생하면 마지막 한 번만 실행
     const debounce = (callback, delay) => {
         let timerId;
-        // console.log('타이머 반환')
-        return  (event) => {
-            if (timerId) {
+
+        return event => {
+            if (timerId)
                 clearTimeout(timerId)
-            }
+
             timerId = setTimeout(callback, delay, event)
         }
 
     }
-
-
-
 </script>
+
 </html>
