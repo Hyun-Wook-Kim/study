@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제너레이퉈</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+
+    // 제너레이터는 new, 혹은 화살표 함수를 사용할 수 없다.
+    function* genFunc() {
+        try{
+            yield 1;
+            yield 2;
+            yield 3;
+
+            console.log('모든 표현식이 실행 되었음')
+        }
+        catch(e){
+            console.error(e)
+        }
+    }
+
+
+    const generator = genFunc();
+    // console.log(generator)
+
+    
+    // console.log(generator.next())
+    // console.log(generator.next())
+    // console.log(generator.next())
+    // console.log(generator.next())
+    // console.log(generator.throw('에러 발생!'))
+    // console.log(generator.return('여기서 끝낼 거지롱!'))
+
+
+
+    function* genFunc2() {
+        const x = yield 1;
+        
+        const y = yield (x + 10)
+
+        return x + y;
+    }
+
+    const generator2 = genFunc(0)
+
+    let res = generator.next();
+    console.log(res)
+    res = generator.next(10)
+    console.log(res)
+    res = generator.next(20)
+    console.log(res)
+
+</script>
+</html>
