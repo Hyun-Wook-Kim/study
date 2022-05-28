@@ -1,0 +1,15 @@
+.box{
+    width: 200px;
+    height: 200px;
+    border: 1px solid;
+    
+
+}
+
+.box.box1{
+    /* padding-left: 15px; */
+    padding-inline-start: 15px;
+    padding-block-start: 15px;
+    margin-inline-start: 30px;
+    margin-block-start: 30px;
+}

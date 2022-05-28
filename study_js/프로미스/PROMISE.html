@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+
+    // 프로미스
+
+    // const promise = url => {
+    //     return new Promise((res, reject) => {
+    //         const xhr = new XMLHttpRequest();
+    //         xhr.open('GET',url);
+    //         xhr.send();
+
+    //         if(xhr.status === 200){
+    //             console.log(xhr.response)
+    //             res(JSON.parse(xhr.response));
+    //         } else {
+    //             console.log(xhr.response)
+    //             reject(new Error (xhr.status))
+    //         }
+    //     })
+    // }
+    
+    // promise('https://jsonplaceholder.typicode.com/posts/1')
+    // .then(res =>  console.log(res))
+    // .catch(reject => console.log(reject))
+    // .finally(()=> console.log('어쨌든 요청은 완료'))
+
+
+        // const resolvedPromise = Promise.resolve([1,2,3]);
+        // resolvedPromise.then(res => {console.log(res)})
+
+        // const rejectedPromise = Promise.reject(new Error('에러 발생'));
+        // rejectedPromise.catch(res => {console.log(res)})
+
+        
+
+        const requestData1 = () => {
+            return new Promise(resolve => setTimeout(()=>{resolve(1)}, 3000))
+        }
+        const requestData2 = () => {
+            return new Promise(resolve => setTimeout(()=>{resolve(2)}, 2000))
+        }
+        const requestData3 = () => {
+            return new Promise(resolve => setTimeout(()=>{resolve(3)}, 1000))
+        }
+
+        const result = [];
+        
+
+        // requestData1()
+        // .then(data => {
+        //     result.push(data);
+        //     return requestData2();
+        // })
+        // .then(data => {
+        //     result.push(data);
+        //     return requestData3();
+        // })
+        // .then(data => {
+        //     result.push(data);
+        //     console.log(result)
+        // })
+        // .catch(console.error)
+
+        Promise.all([requestData1(), requestData2(), requestData3()])
+        .then(console.log)
+        .catch(console.error)
+
+
+</script>
+
+
+</html>

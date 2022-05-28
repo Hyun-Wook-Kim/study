@@ -1,17 +1,18 @@
-import Counter from "./component/Counter";
-import Todos from "./component/Todos";
-import CounterContainer from "./containers/CounterContainer";
+// import Counter from "./components/Counter";
+import CounterContainer
+ from "./comtainers/CounterContainer";
+import TodosContainer from './comtainers/TodoContainer'
+
+import Todos from "./components/Todos";
+
 
 function App() {
-  
   return (
     <>
-      <CounterContainer></CounterContainer>
-      <Todos></Todos>
-      <br></br>
-
+    <CounterContainer></CounterContainer>
+      <hr></hr>
+    <TodosContainer></TodosContainer>
     </>
-
   );
 }
 
