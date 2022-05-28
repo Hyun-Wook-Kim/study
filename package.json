@@ -2,7 +2,10 @@
   "dependencies": {
     "immer": "^9.0.12",
     "include-media": "^1.4.10",
-    "open-color": "^1.9.1"
+    "open-color": "^1.9.1",
+    "react-redux": "^8.0.1",
+    "redux": "^4.2.0",
+    "redux-actions": "^2.6.5"
   },
   "devDependencies": {
     "json-server": "^0.17.0"
