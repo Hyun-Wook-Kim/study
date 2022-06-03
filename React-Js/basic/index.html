@@ -65,15 +65,48 @@
                 <input value={flipped ? amount : Math.round(amount/60) } id="hours" type="number" placeholder="Hours" disabled = {!flipped} onChange={onChange}/>
                 <button onClick={reset}>RESET</button>
                 <button onClick={onFlip}>FLIP</button>
-            </div>
-        )
+                </div>
+                )
     }
    
     const KmToMiles = () => {
+
+        const [flip, setFlip] = React.useState(false)
+         
+
+        const [value, setValue] = React.useState(0)
+
+        const reset = () => {
+            setValue(0)
+        }
+
+        const onFlip = () => {
+            setFlip(current => !current)
+            reset();
+        }
+
+        const onChange = (e) => {
+            console.log(e.target.value);
+            setValue(e.target.value);
+
+        }
+
+
         return(
-            <h3>KM to Miles</h3>
+            <div>
+                <h3>KM to Miles</h3>
+                <label htmlFor="km">키로미터</label>
+                <input type="number" placeholder="KM" id="km" value={ flip ? (value * 1.60934) : value} onChange={onChange} disabled={flip}/>
+                <label htmlFor="km">마일</label>
+                <input type="number" placeholder="Miles" id="miles" value={ flip ? value : (value * 0.621371)} onChange={onChange} disabled = {!flip}/>
+                <button onClick={reset}>RESET</button>
+                <button onClick={onFlip}>FLIP</button>
+            </div>
+
         )
     }
+
+
     const App = () => {
         const [index, setIndex] = React.useState('0');
 
