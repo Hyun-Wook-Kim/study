@@ -1,8 +1,12 @@
 {
   "dependencies": {
+    "esm": "^3.2.25",
     "history": "5",
     "immer": "^9.0.12",
     "include-media": "^1.4.10",
+    "joi": "^17.6.0",
+    "koa-bodyparser": "^4.3.0",
+    "koa-router": "^10.1.1",
     "open-color": "^1.9.1",
     "prop-types": "^15.8.1",
     "react-redux": "^8.0.1",
