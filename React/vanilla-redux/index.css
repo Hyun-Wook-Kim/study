@@ -3,9 +3,11 @@
   width: 64px;
   height: 64px;
   border-radius: 32px;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .toggle.active {
   background: yellow;
-}/*# sourceMappingURL=index.css.map */
+}
+/*# sourceMappingURL=index.css.map */
