@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.js": "//study.git/static/js/main.5332a6a1.js",
-    "index.html": "//study.git/index.html",
-    "main.5332a6a1.js.map": "//study.git/static/js/main.5332a6a1.js.map"
+    "main.js": "/study.git/static/js/main.5332a6a1.js",
+    "index.html": "/study.git/index.html",
+    "main.5332a6a1.js.map": "/study.git/static/js/main.5332a6a1.js.map"
   },
   "entrypoints": [
     "static/js/main.5332a6a1.js"
